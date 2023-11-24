@@ -1,0 +1,7 @@
+{
+    "parent":"dynamictrees:item/branch",
+    "textures":{
+        "bark":"minecraft:block/fruittrees/cherry_log",
+        "rings":"minecraft:block/fruittrees/cherry_log_top"
+    }
+}
