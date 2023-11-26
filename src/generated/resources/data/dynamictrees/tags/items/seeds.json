@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "dtfruittrees:cherry_seed",
+    "dtfruittrees:citron_seed",
+    "dtfruittrees:grapefruit_seed",
+    "dtfruittrees:lemon_seed",
+    "dtfruittrees:lime_seed",
+    "dtfruittrees:mandarin_seed",
+    "dtfruittrees:orange_seed",
+    "dtfruittrees:pomelo_seed",
+    "dtfruittrees:redlove_seed"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "dtfruittrees:cherry_branch",
+    "dtfruittrees:citron_branch",
+    "dtfruittrees:grapefruit_branch",
+    "dtfruittrees:lemon_branch",
+    "dtfruittrees:lime_branch",
+    "dtfruittrees:mandarin_branch",
+    "dtfruittrees:orange_branch",
+    "dtfruittrees:pomelo_branch",
+    "dtfruittrees:redlove_branch"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+    "parent":"dynamictrees:block/smartmodel/sapling",
+    "textures":{
+        "particle":"minecraft:block/fruittrees/leaves_redlove",
+        "log":"minecraft:block/fruittrees/cherry_log",
+        "leaves":"minecraft:block/fruittrees/leaves_redlove"
+    }
+}

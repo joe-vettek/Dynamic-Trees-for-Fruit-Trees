@@ -4,6 +4,7 @@ import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
 import com.ferreusveritas.dynamictrees.blocks.leaves.LeavesProperties;
 import com.ferreusveritas.dynamictrees.blocks.rootyblocks.SoilProperties;
+import com.ferreusveritas.dynamictrees.resources.Resources;
 import com.ferreusveritas.dynamictrees.trees.Family;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import net.minecraft.block.Block;
@@ -16,6 +17,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import xueluoanping.dtfruittrees.data.start;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DTFruitTrees.MOD_ID)
@@ -33,6 +35,8 @@ public class DTFruitTrees {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -85,15 +89,31 @@ public class DTFruitTrees {
     }
 
     public void gatherData(final GatherDataEvent event) {
-        GatherDataHelper.gatherAllData(
-                MOD_ID,
-                event,
-                SoilProperties.REGISTRY,
-                Family.REGISTRY,
-                Species.REGISTRY,
-                LeavesProperties.REGISTRY
-        );
-        ;
+        Resources.MANAGER.gatherData();
+
+        // GatherDataHelper.gatherAllData(
+        //         MOD_ID,
+        //         event,
+        //         SoilProperties.REGISTRY,
+        //         Family.REGISTRY,
+        //         Species.REGISTRY,
+        //         LeavesProperties.REGISTRY
+        // );
+
+        start.dataGen(event);
+    }
+
+    public static void logger(Object... x) {
+
+        // if (General.bool.get())
+        {
+            StringBuilder output = new StringBuilder();
+            for (Object i : x) {
+                output.append("，【").append(i).append("】");
+            }
+            LOGGER.info(output.toString().substring(1));
+        }
+
     }
 
 }

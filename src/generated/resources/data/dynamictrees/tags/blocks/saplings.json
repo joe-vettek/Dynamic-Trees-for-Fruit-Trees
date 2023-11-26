@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "dtfruittrees:cherry_sapling",
+    "dtfruittrees:citron_sapling",
+    "dtfruittrees:grapefruit_sapling",
+    "dtfruittrees:lemon_sapling",
+    "dtfruittrees:lime_sapling",
+    "dtfruittrees:mandarin_sapling",
+    "dtfruittrees:orange_sapling",
+    "dtfruittrees:pomelo_sapling",
+    "dtfruittrees:redlove_sapling"
+  ]
+}

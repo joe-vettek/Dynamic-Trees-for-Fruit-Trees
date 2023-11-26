@@ -49,6 +49,7 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -74,6 +75,7 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
@@ -96,6 +98,8 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
             // Recommended logging level for the console
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
@@ -137,7 +141,11 @@ dependencies {
     implementation fg.deobf("curse.maven:fruit-trees-355467:3573384")
 
     runtimeOnly fg.deobf("curse.maven:cc-tweaked-282001:3236650")
-    runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:4886439")
+//    runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:4277433")
+
+    runtimeOnly fg.deobf("curse.maven:minemenu-222378:3111823")
+    runtimeOnly fg.deobf("curse.maven:journeymap-32274:4012858")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:3910873")
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
     // compile "some.group:artifact:version"

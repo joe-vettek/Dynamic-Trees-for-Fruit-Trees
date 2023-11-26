@@ -1,0 +1,29 @@
+{
+  "type": "fruittrees:hybriding",
+  "conditions": [
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruittrees:hybridization"
+    },
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruittrees:cherry"
+    }
+  ],
+  "ingredients": [
+    {
+      "block": "minecraft:air"
+    },
+    {
+      "block": "dtfruittrees:cherry_leaves"
+    },
+    {
+      "block": "minecraft:wither_rose"
+    }
+  ],
+  "result": [
+    {
+      "block": "dtfruittrees:redlove_leaves"
+    }
+  ]
+}

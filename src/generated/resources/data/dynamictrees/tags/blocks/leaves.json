@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "dtfruittrees:cherry_leaves",
+    "dtfruittrees:citron_leaves",
+    "dtfruittrees:grapefruit_leaves",
+    "dtfruittrees:lemon_leaves",
+    "dtfruittrees:lime_leaves",
+    "dtfruittrees:mandarin_leaves",
+    "dtfruittrees:orange_leaves",
+    "dtfruittrees:pomelo_leaves",
+    "dtfruittrees:redlove_leaves"
+  ]
+}

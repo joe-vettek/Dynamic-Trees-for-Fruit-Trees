@@ -1,0 +1,7 @@
+{
+    "common_leaves":"dtfruittrees:mandarin",
+    "common_species":"dtfruittrees:mandarin",
+    "primitive_log":"fruittrees:citrus_log",
+    "primitive_stripped_log":"fruittrees:stripped_citrus_log",
+    "max_branch_radius":8
+}

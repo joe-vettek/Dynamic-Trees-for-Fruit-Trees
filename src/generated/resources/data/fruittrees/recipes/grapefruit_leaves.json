@@ -1,0 +1,25 @@
+{
+  "type": "fruittrees:hybriding",
+  "conditions": [
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruittrees:hybridization"
+    }
+  ],
+  "ingredients": [
+    {
+      "block": "dtfruittrees:pomelo_leaves"
+    },
+    {
+      "block": "dtfruittrees:lemon_leaves"
+    },
+    {
+      "block": "dtfruittrees:orange_leaves"
+    }
+  ],
+  "result": [
+    {
+      "block": "dtfruittrees:grapefruit_leaves"
+    }
+  ]
+}
