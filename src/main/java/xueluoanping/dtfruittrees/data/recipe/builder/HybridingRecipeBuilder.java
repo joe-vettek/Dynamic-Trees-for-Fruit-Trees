@@ -87,11 +87,11 @@ public class HybridingRecipeBuilder {
             });
             json.add("ingredients", arrayIngredients);
 
-            JsonArray arrayFluids = new JsonArray();
+            // JsonObject arrayFluids = new JsonObject();
             JsonObject fluid = new JsonObject();
             fluid.addProperty("block", this.result.getRegistryName().toString());
-            arrayFluids.add(fluid);
-            json.add("result", arrayFluids);
+            // arrayFluids.add(fluid);
+            json.add("result", fluid);
         }
 
         @Override

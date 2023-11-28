@@ -14,9 +14,7 @@
       "block": "dtfruittrees:citron_leaves"
     }
   ],
-  "result": [
-    {
-      "block": "dtfruittrees:pomelo_leaves"
-    }
-  ]
+  "result": {
+    "block": "dtfruittrees:pomelo_leaves"
+  }
 }

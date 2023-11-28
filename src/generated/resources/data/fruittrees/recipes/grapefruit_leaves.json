@@ -17,9 +17,7 @@
       "block": "dtfruittrees:orange_leaves"
     }
   ],
-  "result": [
-    {
-      "block": "dtfruittrees:grapefruit_leaves"
-    }
-  ]
+  "result": {
+    "block": "dtfruittrees:grapefruit_leaves"
+  }
 }

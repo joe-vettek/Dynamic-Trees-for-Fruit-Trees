@@ -23,7 +23,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
+import snownee.fruits.Hook;
 import snownee.fruits.block.FruitLeavesBlock;
+import snownee.fruits.mixin.MixinBeeEntity;
 import xueluoanping.dtfruittrees.systems.featuregen.CherryFeatures;
 import xueluoanping.dtfruittrees.systems.leaves.CherryLeavesProperties;
 import xueluoanping.dtfruittrees.systems.leaves.FruitsLeavesProperties;
@@ -33,7 +35,6 @@ public class DTFruitTreesRegistries {
 
     @SubscribeEvent
     public static void registerLeavesPropertiesTypes(final TypeRegistryEvent<LeavesProperties> event) {
-
         // DTFruitTrees.LOGGER.debug("正在注册中");
         event.registerType(new ResourceLocation(DTFruitTrees.MOD_ID, "cherry"), CherryLeavesProperties.TYPE);
         event.registerType(new ResourceLocation(DTFruitTrees.MOD_ID, "fruittrees"), FruitsLeavesProperties.TYPE);

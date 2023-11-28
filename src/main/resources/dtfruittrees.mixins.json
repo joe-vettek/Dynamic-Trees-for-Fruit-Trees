@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "xueluoanping.dtfruittrees.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "dtfruittrees.refmap.json",
+  "mixins": [
+    "MixinBeeEntity",
+    "MixinHook"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

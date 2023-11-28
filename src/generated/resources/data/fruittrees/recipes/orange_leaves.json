@@ -14,9 +14,7 @@
       "block": "dtfruittrees:mandarin_leaves"
     }
   ],
-  "result": [
-    {
-      "block": "dtfruittrees:orange_leaves"
-    }
-  ]
+  "result": {
+    "block": "dtfruittrees:orange_leaves"
+  }
 }
