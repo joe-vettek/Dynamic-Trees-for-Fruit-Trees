@@ -12,16 +12,16 @@
   ],
   "ingredients": [
     {
-      "block": "dynamictrees:oak_leaves"
+      "block": "dynamictrees:apple_fruit"
     },
     {
-      "block": "dtfruittrees:cherry_leaves"
+      "block": "dtfruittrees:cherry"
     },
     {
       "block": "minecraft:wither_rose"
     }
   ],
   "result": {
-    "block": "dtfruittrees:redlove_leaves"
+    "block": "dtfruittrees:redlove"
   }
 }

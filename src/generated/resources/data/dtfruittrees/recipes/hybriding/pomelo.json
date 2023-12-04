@@ -8,13 +8,13 @@
   ],
   "ingredients": [
     {
-      "block": "dtfruittrees:lime_leaves"
+      "block": "dtfruittrees:mandarin"
     },
     {
-      "block": "dtfruittrees:mandarin_leaves"
+      "block": "dtfruittrees:citron"
     }
   ],
   "result": {
-    "block": "dtfruittrees:orange_leaves"
+    "block": "dtfruittrees:pomelo"
   }
 }

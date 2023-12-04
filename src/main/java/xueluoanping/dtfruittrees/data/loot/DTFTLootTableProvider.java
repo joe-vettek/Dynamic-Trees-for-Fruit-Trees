@@ -1,8 +1,13 @@
 package xueluoanping.dtfruittrees.data.loot;
 
+import com.ferreusveritas.dynamictrees.api.registry.Registries;
+import com.ferreusveritas.dynamictrees.api.registry.SimpleRegistry;
+import com.ferreusveritas.dynamictrees.api.registry.TypedRegistry;
 import com.ferreusveritas.dynamictrees.blocks.branches.BranchBlock;
 import com.ferreusveritas.dynamictrees.blocks.leaves.LeavesProperties;
 import com.ferreusveritas.dynamictrees.data.provider.DTLootTableProvider;
+import com.ferreusveritas.dynamictrees.deserialisation.JsonDeserialisers;
+import com.ferreusveritas.dynamictrees.resources.Resources;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
 import com.ferreusveritas.dynamictrees.systems.pod.Pod;
 import com.ferreusveritas.dynamictrees.trees.Species;
@@ -25,14 +30,18 @@ import net.minecraft.loot.functions.ExplosionDecay;
 import net.minecraft.loot.functions.SetCount;
 import net.minecraft.resources.ResourcePackType;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 //  I inherited DTLootTableProvider, but many of its functions are private,
 //  so I have to copy them to facilitate modification.
@@ -50,6 +59,7 @@ public class DTFTLootTableProvider extends DTLootTableProvider {
     private final DataGenerator generator;
     private final String modId;
     private final ExistingFileHelper existingFileHelper;
+
     public DTFTLootTableProvider(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
         super(generator, modId, existingFileHelper);
         this.generator = generator;
@@ -62,12 +72,16 @@ public class DTFTLootTableProvider extends DTLootTableProvider {
     @Override
     public void run(DirectoryCache cache) {
 
+        Resources.MANAGER.reload(Resources.MANAGER.prepareReload(null, null));
+        // Resources.MANAGER.gatherData();
+        // Resources.MANAGER.setup();
         // First generate the default
         super.run(cache);
 
         // Now overwrite and generate the parts that need to be customized.
-        addTables();
-        writeTables(cache);
+        // Not need any more
+        // addTables();
+        // writeTables(cache);
     }
 
 
@@ -76,6 +90,7 @@ public class DTFTLootTableProvider extends DTLootTableProvider {
         LeavesProperties.REGISTRY.dataGenerationStream(modId).forEach(this::addLeavesBlockTable);
 
     }
+
     private void writeTables(DirectoryCache cache) {
         Path outputFolder = this.generator.getOutputFolder();
         lootTables.forEach((key, lootTable) -> {
@@ -87,6 +102,7 @@ public class DTFTLootTableProvider extends DTLootTableProvider {
             }
         });
     }
+
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
     private final Map<ResourceLocation, LootTable.Builder> lootTables = new HashMap<>();

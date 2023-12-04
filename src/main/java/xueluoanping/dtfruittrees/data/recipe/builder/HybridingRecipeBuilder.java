@@ -16,6 +16,7 @@ import snownee.fruits.hybridization.HybridingRecipe;
 import snownee.fruits.hybridization.Hybridization;
 import snownee.kiwi.Kiwi;
 import snownee.kiwi.crafting.ModuleLoadedCondition;
+import xueluoanping.dtfruittrees.DTFruitTrees;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +38,7 @@ public class HybridingRecipeBuilder {
     }
 
     public void build(Consumer<IFinishedRecipe> consumerIn) {
-        consumerIn.accept(new Result(new ResourceLocation(FruitsMod.MODID, this.result.getRegistryName().getPath()), this.currentConditions, this.ingredients, this.result));
+        consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID,"hybriding/"+ this.result.getRegistryName().getPath()), this.currentConditions, this.ingredients, this.result));
     }
 
     public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {

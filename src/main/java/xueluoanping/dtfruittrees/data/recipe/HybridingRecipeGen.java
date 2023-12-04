@@ -18,16 +18,16 @@ import xueluoanping.dtfruittrees.util.RegisterFinderUtil;
 public class HybridingRecipeGen {
     public static void register(Consumer<IFinishedRecipe> consumer) {
 
-        Block CHERRY = RegisterFinderUtil.getBlock("dtfruittrees:cherry_leaves");
-        Block MANDARIN = RegisterFinderUtil.getBlock("dtfruittrees:mandarin_leaves");
-        Block LIME = RegisterFinderUtil.getBlock("dtfruittrees:lime_leaves");
-        Block CITRON = RegisterFinderUtil.getBlock("dtfruittrees:citron_leaves");
-        Block POMELO = RegisterFinderUtil.getBlock("dtfruittrees:pomelo_leaves");
-        Block ORANGE = RegisterFinderUtil.getBlock("dtfruittrees:orange_leaves");
-        Block LEMON = RegisterFinderUtil.getBlock("dtfruittrees:lemon_leaves");
-        Block GRAPEFRUIT = RegisterFinderUtil.getBlock("dtfruittrees:grapefruit_leaves");
-        Block REDLOVE = RegisterFinderUtil.getBlock("dtfruittrees:redlove_leaves");
-        Block APPLE = RegisterFinderUtil.getBlock("dynamictrees:oak_leaves");
+        Block CHERRY = RegisterFinderUtil.getBlock("dtfruittrees:cherry");
+        Block MANDARIN = RegisterFinderUtil.getBlock("dtfruittrees:mandarin");
+        Block LIME = RegisterFinderUtil.getBlock("dtfruittrees:lime");
+        Block CITRON = RegisterFinderUtil.getBlock("dtfruittrees:citron");
+        Block POMELO = RegisterFinderUtil.getBlock("dtfruittrees:pomelo");
+        Block ORANGE = RegisterFinderUtil.getBlock("dtfruittrees:orange");
+        Block LEMON = RegisterFinderUtil.getBlock("dtfruittrees:lemon");
+        Block GRAPEFRUIT = RegisterFinderUtil.getBlock("dtfruittrees:grapefruit");
+        Block REDLOVE = RegisterFinderUtil.getBlock("dtfruittrees:redlove");
+        Block APPLE = RegisterFinderUtil.getBlock("dynamictrees:apple_fruit");
 
         HybridingRecipeBuilder
                 .create(Arrays.asList(POMELO,LEMON, ORANGE),GRAPEFRUIT)

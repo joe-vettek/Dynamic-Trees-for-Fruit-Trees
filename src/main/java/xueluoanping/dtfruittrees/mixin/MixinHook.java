@@ -1,5 +1,6 @@
 package xueluoanping.dtfruittrees.mixin;
 
+import com.ferreusveritas.dynamictrees.blocks.FruitBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.util.math.BlockPos;
@@ -18,10 +19,10 @@ public class MixinHook {
 
     @Inject(at = @At("HEAD"), method = "canPollinate", cancellable = true,remap = false)
     private static void zz$canPollinate(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (Hybridization.INSTANCE != null && state.getBlock() instanceof DynamicFruitLeavesBlock)
+        if (Hybridization.INSTANCE != null && state.getBlock() instanceof FruitBlock)
         {
-            // if (state.getValue(DynamicFruitLeavesBlock.AGE) == 2)
             // DTFruitTrees.logger(state);
+            // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
             {
                 cir.setReturnValue(true);
             }

@@ -1,5 +1,6 @@
 package xueluoanping.dtfruittrees.systems.leaves;
 
+import com.ferreusveritas.dynamictrees.blocks.FruitBlock;
 import com.ferreusveritas.dynamictrees.blocks.leaves.DynamicLeavesBlock;
 import com.ferreusveritas.dynamictrees.blocks.leaves.LeavesProperties;
 import net.minecraft.block.Block;
@@ -23,9 +24,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.GameRules;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
+import net.minecraft.world.*;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -36,6 +35,8 @@ import snownee.fruits.cherry.CherryModule;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 import xueluoanping.dtfruittrees.systems.featuregen.FeatureGenFruitLeaves;
 
+import javax.annotation.Nonnull;
+import java.awt.*;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -67,20 +68,21 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements IGrow
 
 
     private boolean dropFruilt(World world, BlockPos pos, BlockState state) {
-        if (state.is(this))
-        { if (state.getValue(AGE) == 3) {
-            world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
-            AtomicReference<Item> item = new AtomicReference<>(Items.AIR);
-            getProperties(state).getFamily().getCommonSpecies().getGenFeatures().forEach(genFeatureConfiguration -> {
-                if (genFeatureConfiguration.has(FeatureGenFruitLeaves.FRUIT_ITEM)) {
-                    item.set(getItemFromRegistry(genFeatureConfiguration.get(FeatureGenFruitLeaves.FRUIT_ITEM)));
-                }
-            });
-            ItemStack stack = new ItemStack(item.get(), 1);
-            ItemEntity dropped = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack);
-            world.addFreshEntity(dropped);
-            return true;
-        }}
+        if (state.is(this)) {
+            if (state.getValue(AGE) == 3) {
+                world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
+                AtomicReference<Item> item = new AtomicReference<>(Items.AIR);
+                getProperties(state).getFamily().getCommonSpecies().getGenFeatures().forEach(genFeatureConfiguration -> {
+                    if (genFeatureConfiguration.has(FeatureGenFruitLeaves.FRUIT_ITEM)) {
+                        item.set(getItemFromRegistry(genFeatureConfiguration.get(FeatureGenFruitLeaves.FRUIT_ITEM)));
+                    }
+                });
+                ItemStack stack = new ItemStack(item.get(), 1);
+                ItemEntity dropped = new ItemEntity(world, pos.getX(), pos.getY(), pos.getZ(), stack);
+                world.addFreshEntity(dropped);
+                return true;
+            }
+        }
 
         // DTFruitTrees.LOGGER.debug(getProperties(state).getFamily().getCommonSpecies().getGenFeatures().get(0));
         return false;
@@ -105,15 +107,30 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements IGrow
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random rand) {
         super.randomTick(state, world, pos, rand);
         int nowAge = state.getValue(AGE);
-        if (nowAge == 0)
-            return;
-        if (nowAge != 3) {
-            world.setBlockAndUpdate(pos, state.setValue(AGE, state.getValue(AGE) + 1));
-            // world.setBlockAndUpdate(pos, state.cycle(AGE));
-        } else {
-            if (rand.nextInt(15) == 0) {
-                dropFruilt(world, pos, state);
-            }
+        // if (nowAge == 0)
+        //     return;
+        // if (nowAge != 3) {
+        //     world.setBlockAndUpdate(pos, state.setValue(AGE, state.getValue(AGE) + 1));
+        //     // world.setBlockAndUpdate(pos, state.cycle(AGE));
+        // } else {
+        //     if (rand.nextInt(15) == 0) {
+        //         dropFruilt(world, pos, state);
+        //     }
+        // }
+        if (nowAge < 2) {
+            if (rand.nextInt(10) == 0)
+                if (!world.isEmptyBlock(pos.below())) {
+                    // if (world.getBlockState(pos.below()).getBlock() instanceof FruitBlock)
+                    //     nowAge = 2;
+                    // else
+                    nowAge++;
+                    world.setBlockAndUpdate(pos, state.setValue(AGE, nowAge));
+                }
+
+        } else if (nowAge == 2 && !(world.getBlockState(pos.below()).getBlock() instanceof FruitBlock)) {
+            world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
+        } else if (nowAge > 2) {
+            world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
         }
 
         // ItemStack stack = new ItemStack(CherryModule.CHERRY.asItem(), 1);
@@ -138,19 +155,18 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements IGrow
     }
 
     public void performBonemeal(ServerWorld world, Random rand, BlockPos pos, BlockState state) {
-        if (state.getValue(AGE) == 3) {
-            if (!world.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
-                return;
-            }
-
-            switch (FruitsConfig.getDropMode(world)) {
-                case INDEPENDENT:
-                    break;
-                case ONE_BY_ONE:
-                    break;
-            }
-            dropFruilt(world, pos, state);
-            world.setBlockAndUpdate(pos, state.setValue(AGE, 1));
+        if (state.getValue(AGE) >= 2) {
+            // if (!world.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
+            //     return;
+            // }
+            // switch (FruitsConfig.getDropMode(world)) {
+            //     case INDEPENDENT:
+            //         break;
+            //     case ONE_BY_ONE:
+            //         break;
+            // }
+            // dropFruilt(world, pos, state);
+            world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
         } else {
             world.setBlockAndUpdate(pos, state.cycle(AGE));
         }
@@ -161,16 +177,29 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements IGrow
     @Override
     public void fallOn(World world, BlockPos pos, Entity entity, float fallDistance) {
         super.fallOn(world, pos, entity, fallDistance);
-        BlockPos newPos=pos.immutable();
+        BlockPos newPos = pos.immutable();
         dropFruilt(world, newPos, world.getBlockState(newPos));
-        newPos=pos.east();
+        newPos = pos.east();
         dropFruilt(world, newPos, world.getBlockState(newPos));
-        newPos=pos.north();
+        newPos = pos.north();
         dropFruilt(world, newPos, world.getBlockState(newPos));
-        newPos=pos.west();
+        newPos = pos.west();
         dropFruilt(world, newPos, world.getBlockState(newPos));
-        newPos=pos.south();
+        newPos = pos.south();
         dropFruilt(world, newPos, world.getBlockState(newPos));
+    }
+
+    @Nonnull
+    @Override
+    public BlockState updateShape(@Nonnull BlockState stateIn, Direction facing, BlockState facingState, @Nonnull IWorld worldIn, @Nonnull BlockPos currentPos, BlockPos facingPos) {
+        if (worldIn.getBlockState(currentPos.below()).getBlock() instanceof FruitBlock) {
+            stateIn = stateIn.setValue(AGE, 2);
+        }
+        // else if (stateIn.getValue(AGE) == 2 && worldIn.isEmptyBlock(currentPos.below())) {
+        //     stateIn= stateIn.setValue(AGE, 0);
+        // }
+
+        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
     }
 }
 

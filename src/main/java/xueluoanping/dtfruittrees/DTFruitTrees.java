@@ -8,6 +8,7 @@ import com.ferreusveritas.dynamictrees.resources.Resources;
 import com.ferreusveritas.dynamictrees.trees.Family;
 import com.ferreusveritas.dynamictrees.trees.Species;
 import net.minecraft.block.Block;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -19,12 +20,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import xueluoanping.dtfruittrees.data.start;
 
+import java.util.Objects;
+
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(DTFruitTrees.MOD_ID)
 public class DTFruitTrees {
     public static final String MOD_ID = "dtfruittrees";
     // Directly reference a log4j logger.
     public static final Logger LOGGER = LogManager.getLogger();
+
+    public static final boolean useLogger=Objects.equals(System.getProperty("forgegradle.runs.dev"), "true");
 
     public DTFruitTrees() {
         // Register the setup method for modloading
@@ -43,8 +48,9 @@ public class DTFruitTrees {
         // MinecraftForge.EVENT_BUS.register(TreeGrowHandler.instance);
         RegistryHandler.setup(MOD_ID);
 
-    }
 
+
+    }
 
 
     private void setup(final FMLCommonSetupEvent event) {
@@ -89,7 +95,7 @@ public class DTFruitTrees {
     }
 
     public void gatherData(final GatherDataEvent event) {
-        Resources.MANAGER.gatherData();
+        // Resources.MANAGER.gatherData();
 
         // GatherDataHelper.gatherAllData(
         //         MOD_ID,
@@ -106,14 +112,17 @@ public class DTFruitTrees {
     public static void logger(Object... x) {
 
         // if (General.bool.get())
-        {
+        if (useLogger) {
             StringBuilder output = new StringBuilder();
             for (Object i : x) {
                 output.append("，【").append(i).append("】");
             }
-            LOGGER.info(output.toString().substring(1));
+            LOGGER.info(output.substring(1));
         }
 
     }
 
+    public static ResourceLocation rl(String name) {
+        return new ResourceLocation(DTFruitTrees.MOD_ID, name);
+    }
 }

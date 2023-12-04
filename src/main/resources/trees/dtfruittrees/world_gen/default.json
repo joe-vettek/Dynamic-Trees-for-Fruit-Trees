@@ -1,11 +1,20 @@
-[  {
-  "__comment": "Cancel standard tree features from the overworld.",
-  "select": { "name": "minecraft:.*" },
-  "cancellers": {
-    "types": ["tree","dtfruittrees:fruittrees"],
-"namespaces": [ "minecraft", "fruittrees" ]
-  }
-},
+[
+  {
+    "__comment": "Cancel standard tree features from the overworld.",
+    "select": {
+      "name": "minecraft:.*"
+    },
+    "cancellers": {
+      "types": [
+        "tree",
+        "dtfruittrees:fruittrees"
+      ],
+      "namespaces": [
+        "minecraft",
+        "fruittrees"
+      ]
+    }
+  },
   {
     "select": {
       "type": "jungle"

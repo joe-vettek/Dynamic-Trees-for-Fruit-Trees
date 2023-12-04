@@ -15,7 +15,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.16.5-1.0.1-beta'
+version = '1.16.5-1.1.0-beta'
 group = 'xueluoanping.dtfruittrees' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dtfruittrees'
 
@@ -37,7 +37,7 @@ minecraft {
     mappings channel: 'official', version: '1.16.5'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -60,6 +60,9 @@ minecraft {
             // You can set various levels here.
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
+
+            // use for logger control
+            property 'forgegradle.runs.dev', 'true'
 
             // Export mixin-changed classes
             property 'mixin.debug.export', 'true'
@@ -84,6 +87,8 @@ minecraft {
             // "REGISTRYDUMP": For getting the contents of all registries.
             property 'forge.logging.markers', 'REGISTRIES'
 
+            // use for logger control
+            property 'forgegradle.runs.dev', 'true'
 
             // Recommended logging level for the console
             // You can set various levels here.
@@ -118,8 +123,11 @@ minecraft {
             // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
             property 'forge.logging.console.level', 'debug'
 
-            // Export mixin-changed classes
             property 'mixin.debug.export', 'true'
+
+            // add runData info
+            property 'forgegradle.runs.runData', 'true'
+            property 'forgegradle.runs.dev', 'true'
 
             // Add mixin config to runtime
             args '-mixin.config=' + project.getProperty('mod_id') + '.mixins.json'
