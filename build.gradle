@@ -15,7 +15,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.16.5-1.1.0-beta'
+version = '1.16.5-1.1.0-release'
 group = 'xueluoanping.dtfruittrees' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dtfruittrees'
 
