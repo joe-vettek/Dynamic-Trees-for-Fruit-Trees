@@ -82,24 +82,30 @@ public class BlockColorHandler {
 
                 Block block = state.getValue(BlockStateProperties.AGE_3) == 0 ?
                         Blocks.AIR : state.getBlock();
-                if (block == CITRON)
-                    return 0xDDCC58;
-                if (block == GRAPEFRUIT)
-                    return 0xF4502B;
-                if (block == LEMON)
-                    return 0xEBCA4B;
-                if (block == LIME)
-                    return 0xCADA76;
-                if (block == MANDARIN)
-                    return 0xF08A19;
-                if (block == ORANGE)
-                    return 0xF08A19;
-                if (block == POMELO)
-                    return 0xF7F67E;
-                if (block == REDLOVE)
-                    return 0xC22626;
-                if (block == CHERRY)
+
+                if (block == CHERRY && i == 0)
                     return 0xE45B55;
+                // if (i == 0)
+                {
+                    if (block == CITRON)
+                        return 0xDDCC58;
+                    if (block == GRAPEFRUIT)
+                        return 0xF4502B;
+                    if (block == LEMON)
+                        return 0xEBCA4B;
+                    if (block == LIME)
+                        return 0xCADA76;
+                    if (block == MANDARIN)
+                        return 0xF08A19;
+                    if (block == ORANGE)
+                        return 0xF08A19;
+                    if (block == POMELO)
+                        return 0xF7F67E;
+                    if (block == REDLOVE)
+                        return 0xC22626;
+                }
+                // else
+                //     return FoliageColors.getBirchColor();
 
                 return -1;
             }, CHERRY, MANDARIN, LIME, CITRON, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);

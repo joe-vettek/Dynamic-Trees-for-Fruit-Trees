@@ -15,7 +15,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.16.5-1.1.0-release'
+version = '1.16.5-1.1.1-release'
 group = 'xueluoanping.dtfruittrees' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'dtfruittrees'
 
@@ -181,6 +181,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:minemenu-222378:3111823")
     runtimeOnly fg.deobf("curse.maven:journeymap-32274:4012858")
     runtimeOnly fg.deobf("curse.maven:jade-324717:3910873")
+    implementation fg.deobf("curse.maven:jei-238222:4371666")
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
     // compile "some.group:artifact:version"
