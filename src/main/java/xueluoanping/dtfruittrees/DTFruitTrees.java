@@ -18,6 +18,7 @@ import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import snownee.fruits.FruitsConfig;
 import xueluoanping.dtfruittrees.data.start;
 
 import java.util.Objects;
@@ -74,6 +75,8 @@ public class DTFruitTrees {
         //        LOGGER.info("Got IMC {}", event.getIMCStream().
         //                map(m->m.getMessageSupplier().get()).
         //                collect(Collectors.toList()));
+        FruitsConfig.worldGen=false;
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
