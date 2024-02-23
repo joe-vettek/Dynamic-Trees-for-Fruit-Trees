@@ -1,55 +1,7 @@
 [
   {
-    "__comment": "Cancel standard tree features from the overworld.",
-    "select": {
-      "name": "minecraft:.*"
-    },
-    "cancellers": {
-      "types": [
-        "tree",
-        "dtfruittrees:fruittrees"
-      ],
-      "namespaces": [
-        "minecraft",
-        "fruittrees"
-      ]
-    }
-  },
-  {
     "select": {
       "type": "jungle"
-    },
-    "apply": {
-      "species": {
-        "method": "splice_before",
-        "random": {
-          "dtfruittrees:citron": 1,
-          "dtfruittrees:lime": 1,
-          "dtfruittrees:orange": 1,
-          "...": 10
-        }
-      }
-    }
-  },
-  {
-    "select": {
-      "type": "forest"
-    },
-    "apply": {
-      "species": {
-        "method": "splice_before",
-        "random": {
-          "dtfruittrees:citron": 1,
-          "dtfruittrees:lime": 1,
-          "dtfruittrees:orange": 1,
-          "...": 20
-        }
-      }
-    }
-  },
-  {
-    "select": {
-      "type": "plains"
     },
     "apply": {
       "species": {
@@ -71,8 +23,40 @@
       "species": {
         "method": "splice_before",
         "random": {
+          "dtfruittrees:citron": 1,
+          "dtfruittrees:lime": 1,
+          "dtfruittrees:orange": 1,
+          "...": 60
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "type": "plains"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruittrees:citron": 1,
+          "dtfruittrees:lime": 1,
+          "dtfruittrees:orange": 1,
+          "...": 150
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "type": "forest"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
           "dtfruittrees:cherry": 1,
-          "...": 40
+          "...": 100
         }
       }
     }
@@ -86,7 +70,7 @@
         "method": "splice_before",
         "random": {
           "dtfruittrees:cherry": 1,
-          "...": 100
+          "...": 200
         }
       }
     }

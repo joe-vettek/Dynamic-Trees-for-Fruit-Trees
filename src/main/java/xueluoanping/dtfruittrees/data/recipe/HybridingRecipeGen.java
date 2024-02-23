@@ -6,17 +6,17 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 
 
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.IFinishedRecipe;
-import net.minecraft.util.ResourceLocation;
-import snownee.kiwi.crafting.ModuleLoadedCondition;
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import snownee.kiwi.recipe.ModuleLoadedCondition;
 import xueluoanping.dtfruittrees.data.recipe.builder.HybridingRecipeBuilder;
 import xueluoanping.dtfruittrees.util.RegisterFinderUtil;
 
 
 public class HybridingRecipeGen {
-    public static void register(Consumer<IFinishedRecipe> consumer) {
+    public static void register(Consumer<FinishedRecipe> consumer) {
 
         Block CHERRY = RegisterFinderUtil.getBlock("dtfruittrees:cherry");
         Block MANDARIN = RegisterFinderUtil.getBlock("dtfruittrees:mandarin");

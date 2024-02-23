@@ -1,10 +1,11 @@
 package xueluoanping.dtfruittrees.systems.leaves;
 
 import com.ferreusveritas.dynamictrees.api.registry.TypedRegistry;
-import com.ferreusveritas.dynamictrees.blocks.leaves.DynamicLeavesBlock;
-import com.ferreusveritas.dynamictrees.blocks.leaves.LeavesProperties;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.util.ResourceLocation;
+import com.ferreusveritas.dynamictrees.block.leaves.DynamicLeavesBlock;
+import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+
 
 public class FruitsLeavesProperties extends LeavesProperties {
 
@@ -15,10 +16,11 @@ public class FruitsLeavesProperties extends LeavesProperties {
     }
 
 
-    @Override
-    protected DynamicLeavesBlock createDynamicLeaves(AbstractBlock.Properties properties) {
-        return new DynamicFruitLeavesBlock(this, properties) ;
 
+
+    @Override
+    protected DynamicLeavesBlock createDynamicLeaves(BlockBehaviour.Properties properties) {
+        return new DynamicFruitLeavesBlock(this, properties) ;
     }
 
 }

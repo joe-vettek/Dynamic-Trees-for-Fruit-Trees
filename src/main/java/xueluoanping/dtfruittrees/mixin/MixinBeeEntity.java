@@ -1,31 +1,33 @@
 package xueluoanping.dtfruittrees.mixin;
 
-import com.ferreusveritas.dynamictrees.blocks.FruitBlock;
-import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+
+import com.ferreusveritas.dynamictrees.block.FruitBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.NeutralMob;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Bee;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import snownee.fruits.Hooks;
 import snownee.fruits.hybridization.Hybridization;
-import xueluoanping.dtfruittrees.DTFruitTrees;
-import xueluoanping.dtfruittrees.systems.leaves.DynamicFruitLeavesBlock;
 
-@Mixin({BeeEntity.class})
-public abstract class MixinBeeEntity extends AnimalEntity {
+@Mixin({Bee.class})
+public abstract class MixinBeeEntity extends Animal {
 
-    protected MixinBeeEntity(EntityType<? extends AnimalEntity> p_i48568_1_, World p_i48568_2_) {
-        super(p_i48568_1_, p_i48568_2_);
+
+    protected MixinBeeEntity(EntityType<? extends Animal> p_27557_, Level p_27558_) {
+        super(p_27557_, p_27558_);
     }
 
     @Inject(at = {@At("HEAD")}, method = {"isFlowerValid"}, cancellable = true)
     public void fruits_isFlowers(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (Hybridization.INSTANCE != null) {
+        if (Hooks.hybridization )
+        {
             // DTFruitTrees.logger(pos);
             BlockState state = this.level.getBlockState(pos);
 

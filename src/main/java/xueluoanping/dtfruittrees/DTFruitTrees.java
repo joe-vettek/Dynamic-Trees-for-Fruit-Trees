@@ -2,22 +2,19 @@ package xueluoanping.dtfruittrees;
 
 import com.ferreusveritas.dynamictrees.api.GatherDataHelper;
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
-import com.ferreusveritas.dynamictrees.blocks.leaves.LeavesProperties;
-import com.ferreusveritas.dynamictrees.blocks.rootyblocks.SoilProperties;
-import com.ferreusveritas.dynamictrees.resources.Resources;
-import com.ferreusveritas.dynamictrees.trees.Family;
-import com.ferreusveritas.dynamictrees.trees.Species;
-import net.minecraft.block.Block;
-import net.minecraft.util.ResourceLocation;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import snownee.fruits.FruitsConfig;
 import xueluoanping.dtfruittrees.data.start;
 
 import java.util.Objects;
@@ -74,14 +71,10 @@ public class DTFruitTrees {
         //        LOGGER.info("Got IMC {}", event.getIMCStream().
         //                map(m->m.getMessageSupplier().get()).
         //                collect(Collectors.toList()));
+        FruitsConfig.fruitTreesWorldGen=false;
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
-    @SubscribeEvent
-    public void onServerStarting(FMLServerStartingEvent event) {
-        // do something when the server starts
-        //        LOGGER.info("HELLO from server starting");
-    }
+
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
     // Event bus for receiving Registry Events)

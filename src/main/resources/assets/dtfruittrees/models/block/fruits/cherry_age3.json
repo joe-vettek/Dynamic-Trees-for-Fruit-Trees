@@ -4,7 +4,7 @@
 	"textures": {
 		"1": "block/fruittrees/fruit",
 		"2": "dtfruittrees:block/cherry_stem",
-		"particle": "block/fruittrees/cherry_stem"
+		"particle": "block/fruittrees/fruit"
 	},
 	"elements": [
 		{

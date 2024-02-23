@@ -2,20 +2,17 @@ package xueluoanping.dtfruittrees.data.recipe.builder;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.minecraft.block.Block;
-import net.minecraft.item.crafting.IRecipeSerializer;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
+
+import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraft.data.IFinishedRecipe;
-import snownee.fruits.FruitsMod;
-import snownee.fruits.hybridization.HybridingRecipe;
+
 import snownee.fruits.hybridization.Hybridization;
-import snownee.kiwi.Kiwi;
-import snownee.kiwi.crafting.ModuleLoadedCondition;
+
+import snownee.kiwi.recipe.ModuleLoadedCondition;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 
 import java.util.ArrayList;
@@ -37,11 +34,11 @@ public class HybridingRecipeBuilder {
         return new HybridingRecipeBuilder(ingredients, result);
     }
 
-    public void build(Consumer<IFinishedRecipe> consumerIn) {
+    public void build(Consumer<FinishedRecipe> consumerIn) {
         consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID,"hybriding/"+ this.result.getRegistryName().getPath()), this.currentConditions, this.ingredients, this.result));
     }
 
-    public void build(Consumer<IFinishedRecipe> consumerIn, ResourceLocation id) {
+    public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
         consumerIn.accept(new Result(id, this.currentConditions, this.ingredients, this.result));
     }
 
@@ -50,7 +47,7 @@ public class HybridingRecipeBuilder {
         return this;
     }
 
-    public static class Result implements IFinishedRecipe {
+    public static class Result implements FinishedRecipe {
         private final List<Block> ingredients;
         private final Block result;
         private final ResourceLocation id;
@@ -72,7 +69,7 @@ public class HybridingRecipeBuilder {
                 else {
                     JsonObject temp = new JsonObject();
                     temp.addProperty("type", c.getID().toString());
-                    new ModuleLoadedCondition.Serializer().write(temp, (ModuleLoadedCondition) c);
+                   ModuleLoadedCondition.Serializer.INSTANCE.write(temp, (ModuleLoadedCondition) c);
                     conds.add(temp);
                 }
             }
@@ -97,7 +94,7 @@ public class HybridingRecipeBuilder {
 
         @Override
         public JsonObject serializeRecipe() {
-            return IFinishedRecipe.super.serializeRecipe();
+            return FinishedRecipe.super.serializeRecipe();
         }
 
         @Override
@@ -106,9 +103,10 @@ public class HybridingRecipeBuilder {
         }
 
         @Override
-        public IRecipeSerializer<?> getType() {
+        public RecipeSerializer<?> getType() {
             return Hybridization.SERIALIZER;
         }
+
 
         @Override
         public JsonObject serializeAdvancement() {

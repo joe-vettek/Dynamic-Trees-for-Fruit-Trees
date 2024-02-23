@@ -1,13 +1,14 @@
 package xueluoanping.dtfruittrees.client;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
+
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.color.BlockColors;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.FoliageColors;
+import net.minecraft.client.color.block.BlockColors;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ColorHandlerEvent;
@@ -74,7 +75,7 @@ public class BlockColorHandler {
                     if (block == CHERRY_LEAVES)
                         return 0xE45B55;
                 }
-                return FoliageColors.getEvergreenColor();
+                return FoliageColor.getEvergreenColor();
             }, CHERRY_LEAVES, MANDARIN_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {

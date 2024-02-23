@@ -2,13 +2,11 @@ package xueluoanping.dtfruittrees.mixin;
 
 
 import com.ferreusveritas.dynamictrees.api.registry.RegistryEntry;
-import com.ferreusveritas.dynamictrees.blocks.FruitBlock;
+import com.ferreusveritas.dynamictrees.block.FruitBlock;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.passive.BeeEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.loot.LootTable;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.storage.loot.LootTable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,6 +18,7 @@ import xueluoanping.dtfruittrees.util.RegisterFinderUtil;
 
 import java.util.Objects;
 import java.util.Properties;
+import java.util.function.Supplier;
 
 /*
  *
@@ -30,7 +29,7 @@ import java.util.Properties;
 public class MixinFruit extends RegistryEntry<Fruit> {
 
     @Shadow(remap = false)
-    private FruitBlock block;
+    private Supplier<FruitBlock> block;
     private ItemStack itemStack;
 
     public MixinFruit(ResourceLocation registryName) {
@@ -42,10 +41,10 @@ public class MixinFruit extends RegistryEntry<Fruit> {
         if (Objects.equals(System.getProperty("forgegradle.runs.runData"), "true")) {
 
             if (this.itemStack == null && this.block != null) {
-                if ((block.getRegistryName() + "").startsWith(DTFruitTrees.MOD_ID)) {
-                    DTFruitTrees.logger("Now is runData, so need to mixin the "+block.getRegistryName()+" drop.");
+                if ((block.get().getRegistryName() + "").startsWith(DTFruitTrees.MOD_ID)) {
+                    DTFruitTrees.logger("Now is runData, so need to mixin the "+block.get().getRegistryName()+" drop.");
                     this.itemStack = RegisterFinderUtil
-                            .getItem((block.getRegistryName() + "").substring(2))
+                            .getItem((block.get().getRegistryName() + "").substring(2))
                             .getDefaultInstance();
                     this.itemStack = this.itemStack.isEmpty() ? null : this.itemStack;
                 }

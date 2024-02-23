@@ -27,7 +27,8 @@
         {
             "name":"fruit",
             "properties":{
-                "fruit":"dtfruittrees:pomelo"
+                "fruit":"dtfruittrees:pomelo",
+                "fruiting_radius": 6
             }
         }
     ]

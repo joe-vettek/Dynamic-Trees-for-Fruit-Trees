@@ -4,12 +4,11 @@ import com.ferreusveritas.dynamictrees.data.provider.DTBlockTagsProvider;
 import com.ferreusveritas.dynamictrees.data.provider.DTItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 import xueluoanping.dtfruittrees.data.lang.Lang_EN;
 import xueluoanping.dtfruittrees.data.lang.Lang_ZH;
 import xueluoanping.dtfruittrees.data.loot.DTFTLootTableProvider;
-import xueluoanping.dtfruittrees.data.tag.DTFTItemTagsProvider;
 
 
 public class start {

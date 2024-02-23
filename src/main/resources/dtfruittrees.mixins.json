@@ -4,10 +4,8 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "dtfruittrees.refmap.json",
   "mixins": [
-    "MixinAbstractBlock",
     "MixinBeeEntity",
     "MixinFruit",
-    "MixinFruitBlock",
     "MixinHook"
   ],
   "client": [

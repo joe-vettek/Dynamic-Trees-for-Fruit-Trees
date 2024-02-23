@@ -27,7 +27,8 @@
         {
             "name":"fruit",
             "properties":{
-                "fruit":"dtfruittrees:orange"
+                "fruit":"dtfruittrees:orange",
+                "fruiting_radius": 6
             }
         }
     ]

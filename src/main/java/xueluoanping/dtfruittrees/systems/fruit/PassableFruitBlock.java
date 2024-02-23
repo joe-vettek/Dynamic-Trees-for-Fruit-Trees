@@ -1,20 +1,22 @@
 package xueluoanping.dtfruittrees.systems.fruit;
 
-import com.ferreusveritas.dynamictrees.blocks.FruitBlock;
-import com.ferreusveritas.dynamictrees.compat.seasons.SeasonHelper;
+
+import com.ferreusveritas.dynamictrees.block.FruitBlock;
+import com.ferreusveritas.dynamictrees.compat.season.SeasonHelper;
 import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
 import com.ferreusveritas.dynamictrees.util.AgeProperties;
-import com.ferreusveritas.dynamictrees.util.WorldContext;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.passive.IFlyingAnimal;
-import net.minecraft.pathfinding.PathType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+
+import com.ferreusveritas.dynamictrees.util.LevelContext;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.PathComputationType;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.EntityCollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
 
 import javax.annotation.Nullable;
@@ -26,44 +28,48 @@ public class PassableFruitBlock extends FruitBlock {
     }
 
 
-    @Deprecated
     @Override
-    public VoxelShape getCollisionShape(BlockState pState, IBlockReader pLevel, BlockPos pPos, ISelectionContext context) {
-        if (context.getEntity() instanceof IFlyingAnimal
-                && pState.getBlock() instanceof FruitBlock)
-        // && ((FruitBlock) (pState.getBlock())).getAge(pState) == 0)
-        {
-            return VoxelShapes.empty();
+    public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext context) {
+
+        if (context instanceof EntityCollisionContext entityCollisionContext) {
+            if (((EntityCollisionContext) context).getEntity() instanceof FlyingAnimal
+                    && pState.getBlock() instanceof FruitBlock)
+            // && ((FruitBlock) (pState.getBlock())).getAge(pState) == 0)
+            {
+                return  Shapes.empty();
+            }
         }
+
         return super.getCollisionShape(pState, pLevel, pPos, context);
     }
 
     @Override
-    public boolean isPathfindable(BlockState pState, IBlockReader pLevel, BlockPos pPos, PathType pType) {
-        if (pType == PathType.AIR) {
+    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
+        if (pType == PathComputationType.AIR) {
             // if (((FruitBlock) pState.getBlock()).getAge(pState) == 0)
             return pState.isCollisionShapeFullBlock(pLevel, pPos);
         } else
             return super.isPathfindable(pState, pLevel, pPos, pType);
     }
 
-    public void doTick(BlockState state, World world, BlockPos pos, Random random) {
-        if (!this.isSupported(world, pos, state)) {
-            drop(world, pos, state);
+
+    public void doTick(BlockState state, Level level, BlockPos pos, Random random) {
+        if (!this.isSupported(level, pos, state)) {
+            drop(level, pos, state);
             return;
         }
 
         final int age = getAge(state);
-        final Float season = SeasonHelper.getSeasonValue(WorldContext.create(world), pos);
+        final Float season = SeasonHelper.getSeasonValue(LevelContext.create(level), pos);
         if (age == 0 && season == null) {
             final boolean doGrow = random.nextFloat() < 0.01;
-            final boolean eventGrow = ForgeHooks.onCropsGrowPre(world, pos, state, doGrow);
-            if ( doGrow||eventGrow) {
-                world.setBlock(pos, state.setValue( AgeProperties.getOrCreate(getMaxAge()), age + 1), 2);
-                ForgeHooks.onCropsGrowPost(world, pos, state);
+            final boolean eventGrow = ForgeHooks.onCropsGrowPre(level, pos, state, doGrow);
+            if (doGrow || eventGrow) {
+                level.setBlock(pos, state.setValue(AgeProperties.getOrCreate(getMaxAge()), age + 1), 2);
+                ForgeHooks.onCropsGrowPost(level, pos, state);
             }
         } else
-            super.doTick(state, world, pos, random);
+            super.doTick(state, level, pos, random);
 
     }
 
