@@ -1,35 +1,41 @@
 {
-    "family":"dtfruittrees:citron",
-    "tapering":0.3,
-    "signal_energy":7.0,
-    "growth_rate":0.7,
-    "leaves_properties":"dtfruittrees:citron",
-    "environment_factors":{
-        "cold":0.75,
-        "hot":0.5,
-        "dry":0.5,
-        "forest":1.05
-    },
-    "perfect_biomes":{
-        "types":[
-            "forest",
-            "overworld"
-        ]
-    },
-    "primitive_sapling":"fruittrees:citron_sapling",
-    "always_show_on_waila":false,
-    "generate_seed":true,
-    "generate_sapling":true,
-    "fruits":[
-        "dtfruittrees:citron"
-    ],
-    "features":[
-        {
-            "name":"fruit",
-            "properties":{
-                "fruit":"dtfruittrees:citron",
-                "fruiting_radius": 5
-            }
-        }
+  "family": "dtfruittrees:citron",
+  "tapering": 0.3,
+  "signal_energy": 7.0,
+  "growth_rate": 0.7,
+  "leaves_properties": "dtfruittrees:citron",
+  "environment_factors": {
+    "cold": 0.75,
+    "hot": 0.5,
+    "dry": 0.5,
+    "forest": 1.05
+  },
+  "perfect_biomes": {
+    "types": [
+      "forest",
+      "overworld"
     ]
+  },
+  "primitive_saplings": [
+    "fruittrees:citron_sapling",
+    {
+      "sapling_item": "fruittrees:citron",
+      "can_craft_seed_to_sapling": false
+    }
+  ],
+  "always_show_on_waila": false,
+  "generate_seed": true,
+  "generate_sapling": true,
+  "fruits": [
+    "dtfruittrees:citron"
+  ],
+  "features": [
+    {
+      "name": "fruit",
+      "properties": {
+        "fruit": "dtfruittrees:citron",
+        "fruiting_radius": 5
+      }
+    }
+  ]
 }

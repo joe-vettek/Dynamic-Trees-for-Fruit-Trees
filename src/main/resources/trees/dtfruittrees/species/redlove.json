@@ -16,6 +16,14 @@
             "overworld"
         ]
     },
+
+    "primitive_saplings": [
+        "fruittrees:redlove_sapling",
+        {
+            "sapling_item": "fruittrees:redlove",
+            "can_craft_seed_to_sapling": false
+        }
+    ],
     "primitive_sapling":"fruittrees:redlove_sapling",
     "always_show_on_waila":false,
     "generate_seed":true,
