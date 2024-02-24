@@ -1,0 +1,7 @@
+{
+    "common_leaves":"dtfruitfulfun:orange",
+    "common_species":"dtfruitfulfun:orange",
+    "primitive_log":"fruitfulfun:citrus_log",
+    "primitive_stripped_log":"fruitfulfun:stripped_citrus_log",
+    "max_branch_radius":8
+}

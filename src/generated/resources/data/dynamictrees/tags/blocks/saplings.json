@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "dtfruittrees:cherry_sapling",
-    "dtfruittrees:citron_sapling",
-    "dtfruittrees:grapefruit_sapling",
-    "dtfruittrees:lemon_sapling",
-    "dtfruittrees:lime_sapling",
-    "dtfruittrees:mandarin_sapling",
-    "dtfruittrees:orange_sapling",
-    "dtfruittrees:pomelo_sapling",
-    "dtfruittrees:redlove_sapling"
+    "dtfruitfulfun:cherry_sapling",
+    "dtfruitfulfun:citron_sapling",
+    "dtfruitfulfun:grapefruit_sapling",
+    "dtfruitfulfun:lemon_sapling",
+    "dtfruitfulfun:lime_sapling",
+    "dtfruitfulfun:mandarin_sapling",
+    "dtfruitfulfun:orange_sapling",
+    "dtfruitfulfun:pomelo_sapling",
+    "dtfruitfulfun:redlove_sapling"
   ]
 }

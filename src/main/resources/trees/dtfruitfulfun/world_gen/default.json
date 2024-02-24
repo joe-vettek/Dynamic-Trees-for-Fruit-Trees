@@ -1,0 +1,78 @@
+[
+  {
+    "select": {
+      "tag": "#minecraft:is_jungle"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruitfulfun:citron": 1,
+          "dtfruitfulfun:lime": 1,
+          "dtfruitfulfun:orange": 1,
+          "...": 50
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "tag": "#minecraft:is_forest"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruitfulfun:citron": 1,
+          "dtfruitfulfun:lime": 1,
+          "dtfruitfulfun:orange": 1,
+          "...": 60
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "tag": "#forge:is_plains"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruitfulfun:citron": 1,
+          "dtfruitfulfun:lime": 1,
+          "dtfruitfulfun:orange": 1,
+          "...": 150
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "tag": "#minecraft:is_forest"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruitfulfun:cherry": 1,
+          "...": 100
+        }
+      }
+    }
+  },
+  {
+    "select": {
+      "tag": "#forge:is_plains"
+    },
+    "apply": {
+      "species": {
+        "method": "splice_before",
+        "random": {
+          "dtfruitfulfun:cherry": 1,
+          "...": 200
+        }
+      }
+    }
+  }
+]

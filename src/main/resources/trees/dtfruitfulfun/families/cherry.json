@@ -1,0 +1,7 @@
+{
+    "common_leaves":"dtfruitfulfun:cherry",
+    "common_species":"dtfruitfulfun:cherry",
+    "primitive_log":"fruitfulfun:cherry_log",
+    "primitive_stripped_log":"fruitfulfun:stripped_cherry_log",
+    "max_branch_radius":8
+}

@@ -1,7 +1,0 @@
-{
-    "common_leaves":"dtfruittrees:lime",
-    "common_species":"dtfruittrees:lime",
-    "primitive_log":"fruittrees:citrus_log",
-    "primitive_stripped_log":"fruittrees:stripped_citrus_log",
-    "max_branch_radius":8
-}

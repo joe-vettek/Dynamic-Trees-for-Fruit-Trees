@@ -1,7 +1,0 @@
-{
-    "common_leaves":"dtfruittrees:redlove",
-    "common_species":"dtfruittrees:redlove",
-    "primitive_log":"fruittrees:cherry_log",
-    "primitive_stripped_log":"fruittrees:stripped_cherry_log",
-    "max_branch_radius":8
-}

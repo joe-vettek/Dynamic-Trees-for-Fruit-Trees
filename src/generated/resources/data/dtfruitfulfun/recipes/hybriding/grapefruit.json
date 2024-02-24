@@ -1,0 +1,15 @@
+{
+  "type": "fruitfulfun:hybridizing",
+  "conditions": [
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruitfulfun:hybridization"
+    }
+  ],
+  "ingredients": [
+    "dtfruitfulfun:pomelo",
+    "dtfruitfulfun:lemon",
+    "dtfruitfulfun:orange"
+  ],
+  "result": "dtfruitfulfun:grapefruit"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "fruitfulfun:hybridizing",
+  "conditions": [
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruitfulfun:hybridization"
+    },
+    {
+      "type": "kiwi:is_loaded",
+      "module": "fruitfulfun:cherry"
+    }
+  ],
+  "ingredients": [
+    "dynamictrees:apple_fruit",
+    "dtfruitfulfun:cherry",
+    "minecraft:wither_rose"
+  ],
+  "result": "dtfruitfulfun:redlove"
+}

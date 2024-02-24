@@ -1,14 +1,14 @@
 {
   "replace": false,
   "values": [
-    "dtfruittrees:cherry_leaves",
-    "dtfruittrees:citron_leaves",
-    "dtfruittrees:grapefruit_leaves",
-    "dtfruittrees:lemon_leaves",
-    "dtfruittrees:lime_leaves",
-    "dtfruittrees:mandarin_leaves",
-    "dtfruittrees:orange_leaves",
-    "dtfruittrees:pomelo_leaves",
-    "dtfruittrees:redlove_leaves"
+    "dtfruitfulfun:cherry_leaves",
+    "dtfruitfulfun:citron_leaves",
+    "dtfruitfulfun:grapefruit_leaves",
+    "dtfruitfulfun:lemon_leaves",
+    "dtfruitfulfun:lime_leaves",
+    "dtfruitfulfun:mandarin_leaves",
+    "dtfruitfulfun:orange_leaves",
+    "dtfruitfulfun:pomelo_leaves",
+    "dtfruitfulfun:redlove_leaves"
   ]
 }

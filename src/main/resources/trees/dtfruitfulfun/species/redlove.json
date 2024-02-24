@@ -1,0 +1,49 @@
+{
+    "family":"dtfruitfulfun:redlove",
+    "tapering":0.3,
+    "signal_energy":12.0,
+    "growth_rate":0.8,
+    "leaves_properties":"dtfruitfulfun:redlove",
+    "environment_factors":{
+        "cold":0.75,
+        "hot":0.5,
+        "dry":0.5,
+        "forest":1.05
+    },
+    "perfect_biomes":{
+        "types":[
+            "forest",
+            "overworld"
+        ]
+    },
+
+    "primitive_saplings": [
+        "fruitfulfun:redlove_sapling",
+        {
+            "sapling_item": "fruitfulfun:redlove",
+            "can_craft_seed_to_sapling": false
+        }
+    ],
+    "primitive_sapling":"fruitfulfun:redlove_sapling",
+    "always_show_on_waila":false,
+    "generate_seed":true,
+    "generate_sapling":true,
+    "fruits":[
+        "dtfruitfulfun:redlove"
+    ],
+    "features":[
+        {
+            "name":"dtfruitfulfun:fallen_leaves",
+            "properties":{
+                "carpet":"fruitfulfun:redlove_carpet"
+            }
+        },
+        {
+            "name":"fruit",
+            "properties":{
+                "fruit":"dtfruitfulfun:redlove",
+                "fruiting_radius": 6
+            }
+        }
+    ]
+}
