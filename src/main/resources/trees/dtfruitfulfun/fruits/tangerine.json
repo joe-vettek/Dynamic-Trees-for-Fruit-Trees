@@ -1,7 +1,7 @@
 {
           "_todo": "Remove block registry name in 1.18 so it is called `dynamictrees:apple`.","type":"dtfruitfulfun:fly_passable",
-    "block_registry_name":"mandarin",
-    "item_stack":"fruitfulfun:mandarin",
+    "block_registry_name":"tangerine",
+    "item_stack":"fruitfulfun:tangerine",
     "block_shapes":[
         {
             "function":"fruit",

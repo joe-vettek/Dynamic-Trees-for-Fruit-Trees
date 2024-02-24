@@ -1,6 +1,6 @@
 {
     "parent":"dynamictrees:item/standard_seed",
     "textures":{
-        "layer0":"dtfruitfulfun:item/mandarin_seed"
+        "layer0":"dtfruitfulfun:item/tangerine_seed"
     }
 }

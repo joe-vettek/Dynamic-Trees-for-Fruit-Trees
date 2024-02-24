@@ -1,6 +1,6 @@
 {
-    "common_leaves":"dtfruitfulfun:mandarin",
-    "common_species":"dtfruitfulfun:mandarin",
+    "common_leaves":"dtfruitfulfun:tangerine",
+    "common_species":"dtfruitfulfun:tangerine",
     "primitive_log":"fruitfulfun:citrus_log",
     "primitive_stripped_log":"fruitfulfun:stripped_citrus_log",
     "max_branch_radius":8

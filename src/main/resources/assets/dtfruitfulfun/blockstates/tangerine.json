@@ -1,7 +1,7 @@
 {
     "variants":{
         "age=0":{
-            "model":"dtfruitfulfun:block/fruits/mandarin_age0"
+            "model":"dtfruitfulfun:block/fruits/tangerine_age0"
         },
         "age=1":{
             "model":"dtfruitfulfun:block/fruits/fruit_age1"
