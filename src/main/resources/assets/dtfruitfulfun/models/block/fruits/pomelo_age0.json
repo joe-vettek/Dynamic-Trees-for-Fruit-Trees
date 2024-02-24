@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "block/fruittrees/flowers_pomelo",
-		"particle": "block/fruittrees/flowers_pomelo"
+		"0": "fruitfulfun:block/pomelo_flowers",
+		"particle": "fruitfulfun:block/pomelo_flowers"
 	},
 	"elements": [
 		{

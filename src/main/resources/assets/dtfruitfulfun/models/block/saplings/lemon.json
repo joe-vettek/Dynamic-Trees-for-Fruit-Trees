@@ -1,8 +1,8 @@
 {
     "parent":"dynamictrees:block/smartmodel/sapling",
     "textures":{
-        "particle":"minecraft:block/fruittrees/leaves_lemon",
-        "log":"minecraft:block/fruittrees/log",
-        "leaves":"minecraft:block/fruittrees/leaves_lemon"
+        "particle":"fruitfulfun:block/lemon_leaves",
+        "log":"fruitfulfun:block/citrus_log",
+        "leaves":"fruitfulfun:block/lemon_leaves"
     }
 }

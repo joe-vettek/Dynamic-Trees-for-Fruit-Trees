@@ -1,7 +1,7 @@
 {
     "loader":"dynamictrees:branch",
     "textures":{
-        "bark":"minecraft:block/fruittrees/log",
-        "rings":"minecraft:block/fruittrees/log_top"
+        "bark":"fruitfulfun:block/citrus_log",
+        "rings":"fruitfulfun:block/citrus_log_top"
     }
 }

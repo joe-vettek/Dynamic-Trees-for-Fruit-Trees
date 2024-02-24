@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "block/fruittrees/leaves_redlove",
-		"particle": "block/fruittrees/leaves_redlove"
+		"0": "fruitfulfun:block/redlove_leaves",
+		"particle": "fruitfulfun:block/redlove_leaves"
 	},
 	"elements": [
 		{

@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"ambientocclusion": false,
 	"textures": {
-		"0": "block/fruittrees/flowers_mandarin",
-		"particle": "block/fruittrees/flowers_mandarin"
+		"0": "fruitfulfun:block/mandarin_flowers",
+		"particle": "fruitfulfun:block/mandarin_flowers"
 	},
 	"elements": [
 		{
