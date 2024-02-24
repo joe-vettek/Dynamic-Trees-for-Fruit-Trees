@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 import snownee.fruits.block.FruitLeavesBlock;
+import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 @OnlyIn(Dist.CLIENT)
@@ -26,25 +27,25 @@ public class BlockColorHandler {
     public static void handleBlockColor(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             BlockState birchLeaves = Blocks.BIRCH_LEAVES.defaultBlockState();
-            Block CHERRY_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:cherry_leaves"));
-            Block MANDARIN_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:mandarin_leaves"));
-            Block LIME_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:lime_leaves"));
-            Block CITRON_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:citron_leaves"));
-            Block POMELO_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:pomelo_leaves"));
-            Block ORANGE_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:orange_leaves"));
-            Block LEMON_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:lemon_leaves"));
-            Block GRAPEFRUIT_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:grapefruit_leaves"));
-            Block REDLOVE_LEAVES = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:redlove_leaves"));
+            Block CHERRY_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("cherry_leaves"));
+            Block TANGERINE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("tangerine_leaves"));
+            Block LIME_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lime_leaves"));
+            Block CITRON_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("citron_leaves"));
+            Block POMELO_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomelo_leaves"));
+            Block ORANGE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("orange_leaves"));
+            Block LEMON_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lemon_leaves"));
+            Block GRAPEFRUIT_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("grapefruit_leaves"));
+            Block REDLOVE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("redlove_leaves"));
 
-            Block CHERRY = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:cherry"));
-            Block MANDARIN = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:mandarin"));
-            Block LIME = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:lime"));
-            Block CITRON = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:citron"));
-            Block POMELO = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:pomelo"));
-            Block ORANGE = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:orange"));
-            Block LEMON = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:lemon"));
-            Block GRAPEFRUIT = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:grapefruit"));
-            Block REDLOVE = ForgeRegistries.BLOCKS.getValue(new ResourceLocation("dtfruittrees:redlove"));
+            Block CHERRY = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("cherry"));
+            Block TANGERINE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("tangerine"));
+            Block LIME = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lime"));
+            Block CITRON = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("citron"));
+            Block POMELO = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomelo"));
+            Block ORANGE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("orange"));
+            Block LEMON = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lemon"));
+            Block GRAPEFRUIT = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("grapefruit"));
+            Block REDLOVE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("redlove"));
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {
                 if (i == 0) {
@@ -64,7 +65,7 @@ public class BlockColorHandler {
                         return 0xEBCA4B;
                     if (block == LIME_LEAVES)
                         return 0xCADA76;
-                    if (block == MANDARIN_LEAVES)
+                    if (block == TANGERINE_LEAVES)
                         return 0xF08A19;
                     if (block == ORANGE_LEAVES)
                         return 0xF08A19;
@@ -76,7 +77,7 @@ public class BlockColorHandler {
                         return 0xE45B55;
                 }
                 return FoliageColor.getEvergreenColor();
-            }, CHERRY_LEAVES, MANDARIN_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
+            }, CHERRY_LEAVES, TANGERINE_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {
 
@@ -96,7 +97,7 @@ public class BlockColorHandler {
                         return 0xEBCA4B;
                     if (block == LIME)
                         return 0xCADA76;
-                    if (block == MANDARIN)
+                    if (block == TANGERINE)
                         return 0xF08A19;
                     if (block == ORANGE)
                         return 0xF08A19;
@@ -109,7 +110,7 @@ public class BlockColorHandler {
                 //     return FoliageColors.getBirchColor();
 
                 return -1;
-            }, CHERRY, MANDARIN, LIME, CITRON, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
+            }, CHERRY, TANGERINE, LIME, CITRON, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
 
         });
 
