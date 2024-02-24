@@ -1,0 +1,29 @@
+{
+  "type": "fruitfulfun:hybridizing",
+  "pollens": [
+    "dtfruitfulfun:pomelo",
+    "dtfruitfulfun:lemon",
+    "dtfruitfulfun:orange"
+  ],
+  "contextual": {
+    "type": "fruitfulfun:bee_has_trait",
+    "trait": "advanced_pollination"
+  },
+  "post": {
+    "type": "place",
+    "block": {
+      "blocks": [
+        "fruitfulfun:hybridizing"
+      ],
+      "state": {
+        "age": 0
+      }
+    }
+  },
+  "conditions": [
+    {
+      "module": "fruitfulfun:bee",
+      "type": "kiwi:is_loaded"
+    }
+  ]
+}

@@ -31,7 +31,8 @@ public class BlockColorHandler {
             Block TANGERINE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("tangerine_leaves"));
             Block LIME_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lime_leaves"));
             Block CITRON_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("citron_leaves"));
-            Block POMELO_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomelo_leaves"));
+            Block POMELO_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomegranate_leaves"));
+            Block POMEGRANATE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomelo_leaves"));
             Block ORANGE_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("orange_leaves"));
             Block LEMON_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lemon_leaves"));
             Block GRAPEFRUIT_LEAVES = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("grapefruit_leaves"));
@@ -41,6 +42,7 @@ public class BlockColorHandler {
             Block TANGERINE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("tangerine"));
             Block LIME = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lime"));
             Block CITRON = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("citron"));
+            Block POMEGRANATE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomegranate"));
             Block POMELO = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("pomelo"));
             Block ORANGE = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("orange"));
             Block LEMON = ForgeRegistries.BLOCKS.getValue(DTFruitfulFun.rl("lemon"));
@@ -74,6 +76,8 @@ public class BlockColorHandler {
                         return 0xF08A19;
                     if (block == ORANGE_LEAVES)
                         return 0xF08A19;
+                    if (block == POMEGRANATE_LEAVES)
+                        return 0xB23733;
                     if (block == POMELO_LEAVES)
                         return 0xF7F67E;
                     if (block == REDLOVE_LEAVES)
@@ -82,7 +86,7 @@ public class BlockColorHandler {
                         return 0xE45B55;
                 }
                 return FoliageColor.getEvergreenColor();
-            }, CHERRY_LEAVES, TANGERINE_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
+            }, CHERRY_LEAVES, TANGERINE_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMEGRANATE_LEAVES,POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {
 
@@ -106,6 +110,8 @@ public class BlockColorHandler {
                         return 0xF08A19;
                     if (block == ORANGE)
                         return 0xF08A19;
+                    if (block == POMEGRANATE)
+                        return 0xB23733;
                     if (block == POMELO)
                         return 0xF7F67E;
                     if (block == REDLOVE)
@@ -115,7 +121,7 @@ public class BlockColorHandler {
                 //     return FoliageColors.getBirchColor();
 
                 return -1;
-            }, CHERRY, TANGERINE, LIME, CITRON, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
+            }, CHERRY, TANGERINE, LIME, CITRON,POMEGRANATE, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
 
         });
 

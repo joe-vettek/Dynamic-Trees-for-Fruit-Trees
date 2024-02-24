@@ -1,0 +1,8 @@
+{
+    "parent":"dynamictrees:block/smartmodel/sapling",
+    "textures":{
+        "particle":"fruitfulfun:block/pomegranate_leaves",
+        "log":"fruitfulfun:block/citrus_log",
+        "leaves":"fruitfulfun:block/pomegranate_leaves"
+    }
+}

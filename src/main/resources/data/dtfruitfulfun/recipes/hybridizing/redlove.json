@@ -1,0 +1,32 @@
+{
+  "type": "fruitfulfun:hybridizing",
+  "pollens": [
+    "dynamictrees:apple",
+    "dtfruitfulfun:cherry",
+    "minecraft:wither_rose"
+  ],
+  "ending_step": [
+    "dtfruitfulfun:cherry"
+  ],
+  "contextual": {
+    "type": "fruitfulfun:bee_has_trait",
+    "trait": "advanced_pollination"
+  },
+  "post": {
+    "type": "place",
+    "block": {
+      "blocks": [
+        "dtfruitfulfun:redlove"
+      ],
+      "state": {
+        "age": 0
+      }
+    }
+  },
+  "conditions": [
+    {
+      "module": "fruitfulfun:bee",
+      "type": "kiwi:is_loaded"
+    }
+  ]
+}

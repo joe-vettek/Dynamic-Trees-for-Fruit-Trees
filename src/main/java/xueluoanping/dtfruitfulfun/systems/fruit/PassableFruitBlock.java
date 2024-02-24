@@ -10,6 +10,7 @@ import com.ferreusveritas.dynamictrees.util.LevelContext;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -71,6 +72,5 @@ public class PassableFruitBlock extends FruitBlock {
             super.doTick(state, level, pos, random);
 
     }
-
 
 }

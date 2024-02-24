@@ -1,0 +1,27 @@
+{
+  "type": "fruitfulfun:hybridizing",
+  "pollens": [
+    "dynamictrees:apple",
+    "spore_blossom"
+  ],
+  "ending_step": [
+    "dynamictrees:apple"
+  ],
+  "post": {
+    "type": "place",
+    "block": {
+      "blocks": [
+        "dtfruitfulfun:pomegranate"
+      ],
+      "state": {
+        "age": 0
+      }
+    }
+  },
+  "conditions": [
+    {
+      "module": "fruitfulfun:bee",
+      "type": "kiwi:is_loaded"
+    }
+  ]
+}

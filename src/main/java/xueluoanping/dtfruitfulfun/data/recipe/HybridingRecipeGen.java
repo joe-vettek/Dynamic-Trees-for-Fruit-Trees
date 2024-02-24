@@ -25,7 +25,7 @@ public class HybridingRecipeGen {
         Block LEMON = RegisterFinderUtil.getBlock("dtfruittrees:lemon");
         Block GRAPEFRUIT = RegisterFinderUtil.getBlock("dtfruittrees:grapefruit");
         Block REDLOVE = RegisterFinderUtil.getBlock("dtfruittrees:redlove");
-        Block APPLE = RegisterFinderUtil.getBlock("dynamictrees:apple_fruit");
+        Block APPLE = RegisterFinderUtil.getBlock("dynamictrees:apple");
 
         HybridingRecipeBuilder
                 .create(Arrays.asList(POMELO,LEMON, ORANGE),GRAPEFRUIT)
