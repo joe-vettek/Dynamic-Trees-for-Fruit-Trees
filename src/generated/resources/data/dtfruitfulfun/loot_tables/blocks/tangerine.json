@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "dtfruitfulfun:mandarin",
+              "block": "dtfruitfulfun:tangerine",
               "properties": {
                 "age": "3"
               }
             }
           ],
-          "name": "fruitfulfun:mandarin"
+          "name": "fruitfulfun:tangerine"
         }
       ]
     }

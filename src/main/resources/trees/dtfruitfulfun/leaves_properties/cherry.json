@@ -1,5 +1,4 @@
 {
     "type":"dtfruitfulfun:cherry",
-    "primitive_leaves":"fruitfulfun:cherry_leaves",
-    "color":"116777215"
+    "primitive_leaves":"fruitfulfun:cherry_leaves"
 }

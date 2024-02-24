@@ -49,6 +49,11 @@ public class BlockColorHandler {
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {
                 if (i == 0) {
+                    Block block = state.getBlock();
+                    if (block == REDLOVE_LEAVES)
+                        return -1;
+                    if (block == CHERRY_LEAVES)
+                        return -1;
                     return Minecraft.getInstance().getBlockColors().getColor(birchLeaves, worlds, poss, i);
                 }
                 if (i == 1) {
