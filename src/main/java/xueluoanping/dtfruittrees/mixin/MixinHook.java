@@ -13,14 +13,14 @@ import snownee.fruits.Hooks;
 @Mixin({snownee.fruits.Hooks.class})
 public class MixinHook {
 
-    @Inject(at = @At("HEAD"), method = "canPollinate", cancellable = true, remap = false)
-    private static void zz$canPollinate(BlockState state, CallbackInfoReturnable<Boolean> cir) {
-        if (Hooks.hybridization && state.getBlock() instanceof FruitBlock) {
-            // DTFruitTrees.logger(state);
-            // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
-            {
-                cir.setReturnValue(true);
-            }
-        }
-    }
+    // @Inject(at = @At("HEAD"), method = "canPollinate", cancellable = true, remap = false)
+    // private static void zz$canPollinate(BlockState state, CallbackInfoReturnable<Boolean> cir) {
+    //     if (Hooks.hybridization && state.getBlock() instanceof FruitBlock) {
+    //         // DTFruitTrees.logger(state);
+    //         // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
+    //         {
+    //             cir.setReturnValue(true);
+    //         }
+    //     }
+    // }
 }

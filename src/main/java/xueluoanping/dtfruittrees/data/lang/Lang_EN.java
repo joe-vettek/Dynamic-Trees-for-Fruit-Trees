@@ -1,6 +1,7 @@
 package xueluoanping.dtfruittrees.data.lang;
 
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import xueluoanping.dtfruittrees.DTFruitTrees;
@@ -10,7 +11,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class Lang_EN extends LangHelper {
-    public Lang_EN(DataGenerator gen, ExistingFileHelper helper) {
+    public Lang_EN(PackOutput gen, ExistingFileHelper helper) {
         super(gen, helper, DTFruitTrees.MOD_ID, "en_us");
     }
 

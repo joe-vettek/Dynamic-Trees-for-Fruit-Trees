@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -12,7 +13,7 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 
 
-import snownee.fruits.hybridization.HybridizationModule;
+import snownee.fruits.bee.BeeModule;
 import snownee.kiwi.recipe.ModuleLoadedCondition;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 
@@ -36,7 +37,7 @@ public class HybridingRecipeBuilder {
     }
 
     public void build(Consumer<FinishedRecipe> consumerIn) {
-        consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID, "hybriding/" + Registry.BLOCK.getKey(this.result).getPath()), this.currentConditions, this.ingredients, this.result));
+        consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID, "hybriding/" + BuiltInRegistries.BLOCK.getKey(this.result).getPath()), this.currentConditions, this.ingredients, this.result));
     }
 
     public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
@@ -80,12 +81,12 @@ public class HybridingRecipeBuilder {
 
 
             this.ingredients.forEach(block -> {
-                arrayIngredients.add(Registry.BLOCK.getKey(block).toString());
+                arrayIngredients.add(BuiltInRegistries.BLOCK.getKey(block).toString());
             });
             json.add("ingredients", arrayIngredients);
 
 
-            json.addProperty("result",  Registry.BLOCK.getKey(this.result).toString());
+            json.addProperty("result",  BuiltInRegistries.BLOCK.getKey(this.result).toString());
         }
 
         @Override
@@ -100,7 +101,7 @@ public class HybridingRecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return HybridizationModule.SERIALIZER;
+            return BeeModule.SERIALIZER.get();
         }
 
 

@@ -62,7 +62,7 @@ description=''''''
     side="BOTH"
 
 [[dependencies.${mod_id}]]
-modId="fruittrees"
+modId="fruitfulfun"
 mandatory=true
 versionRange="${fruittrees_version_range}"
 ordering="AFTER"

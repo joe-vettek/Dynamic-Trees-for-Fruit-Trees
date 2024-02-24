@@ -171,17 +171,20 @@ dependencies {
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft "net.minecraftforge:forge:${minecraft_min_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.19.2:1.2.0-BETA1")
-    implementation fg.deobf("curse.maven:kiwi-303657:5063293")
-    implementation fg.deobf("curse.maven:fruit-trees-355467:4799298")
+//    implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.19.2:1.2.0-BETA1")
+    implementation fg.deobf("curse.maven:dynamictrees-252818:5065701")
 
-    runtimeOnly fg.deobf("curse.maven:cc-tweaked-282001:5005332")
+    implementation fg.deobf("curse.maven:kiwi-303657:5039878")
+    implementation fg.deobf("curse.maven:lychee-567403:5067568")
+    implementation fg.deobf("curse.maven:fruit-trees-355467:5116228")
+
+    runtimeOnly fg.deobf("curse.maven:cc-tweaked-282001:5118388")
 //    runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:4277433")
 
-    runtimeOnly fg.deobf("curse.maven:minemenu-222378:4825141")
-    runtimeOnly fg.deobf("curse.maven:journeymap-32274:4532924")
-    runtimeOnly fg.deobf("curse.maven:jade-324717:4914105")
-    runtimeOnly fg.deobf("curse.maven:jei-238222:5106178")
+    runtimeOnly fg.deobf("curse.maven:minemenu-222378:4938047")
+    runtimeOnly fg.deobf("curse.maven:journeymap-32274:4873848")
+    runtimeOnly fg.deobf("curse.maven:jade-324717:5072729")
+    runtimeOnly fg.deobf("curse.maven:jei-238222:5101366")
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
     // compile "some.group:artifact:version"

@@ -13,7 +13,7 @@ import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import snownee.fruits.FruitsConfig;
+import snownee.fruits.FFCommonConfig;
 import xueluoanping.dtfruittrees.data.start;
 
 import java.util.Objects;
@@ -70,7 +70,7 @@ public class DTFruitTrees {
         //        LOGGER.info("Got IMC {}", event.getIMCStream().
         //                map(m->m.getMessageSupplier().get()).
         //                collect(Collectors.toList()));
-        FruitsConfig.villageAppleTreeWorldGen=false;
+        FFCommonConfig.villageAppleTreeWorldGen=false;
     }
 
 

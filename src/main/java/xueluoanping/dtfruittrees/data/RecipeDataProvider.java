@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 import net.minecraft.data.DataGenerator;
 
 
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
@@ -12,23 +13,13 @@ import xueluoanping.dtfruittrees.data.recipe.HybridingRecipeGen;
 
 
 public class RecipeDataProvider extends RecipeProvider {
-	public RecipeDataProvider(DataGenerator generator) {
+	public RecipeDataProvider(PackOutput generator) {
 		super(generator);
 	}
 
-
 	@Override
-	protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+	protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 		HybridingRecipeGen.register(consumer);
 	}
 
-
-	//
-	// private void controlRecipe(Consumer<FinishedRecipe> consumer) {
-	//
-	// 	ConditionalRecipe.builder()
-	// 			.addCondition(new ConfigCondition(General.class.getDeclaredFields()[3].getName()))
-	// 			.addRecipe(
-	// 					ShapedRecipeBuilder.shaped(Items.BREAD)
-	//
 }

@@ -25,15 +25,15 @@ public abstract class MixinBeeEntity extends Animal {
 
     @Inject(at = {@At("HEAD")}, method = {"isFlowerValid"}, cancellable = true)
     public void fruits_isFlowers(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        if (Hooks.hybridization )
+        // if (Hooks.hybridization )
         {
             // DTFruitTrees.logger(pos);
-            BlockState state = this.level.getBlockState(pos);
+            BlockState state = level().getBlockState(pos);
 
-            if (this.level.isLoaded(pos) && state.getBlock() instanceof FruitBlock) {
+            if (level().isLoaded(pos) && state.getBlock() instanceof FruitBlock) {
                 // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
                 // DTFruitTrees.logger(state);
-                    cir.setReturnValue(true);
+                cir.setReturnValue(true);
             }
 
         }
