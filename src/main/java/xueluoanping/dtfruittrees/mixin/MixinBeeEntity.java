@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import snownee.fruits.Hooks;
-import snownee.fruits.hybridization.Hybridization;
 
 @Mixin({Bee.class})
 public abstract class MixinBeeEntity extends Animal {

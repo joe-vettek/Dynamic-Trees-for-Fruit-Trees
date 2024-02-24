@@ -11,6 +11,7 @@ import com.ferreusveritas.dynamictrees.systems.genfeature.context.PostGrowContex
 import com.ferreusveritas.dynamictrees.systems.nodemapper.FindEndsNode;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -60,7 +61,7 @@ public class FeatureGenFallenLeaves extends GenFeature {
         }
 
 
-        final Random random = context.random();
+        final RandomSource random = context.random();
         endPoints.forEach(pos -> {
             int x = pos.getX() + random.nextInt(5) - 2;
             int z = pos.getZ() + random.nextInt(5) - 2;
@@ -113,7 +114,7 @@ public class FeatureGenFallenLeaves extends GenFeature {
         }
 
 
-        final Random random = context.random();
+        final RandomSource random = context.random();
         final BlockPos pos = endPoints.get(random.nextInt(endPoints.size()));
 
 

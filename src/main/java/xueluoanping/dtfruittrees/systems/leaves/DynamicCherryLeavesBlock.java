@@ -5,6 +5,7 @@ import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
@@ -21,10 +22,9 @@ public class DynamicCherryLeavesBlock extends DynamicFruitLeavesBlock {
     }
 
 
-
     @Override
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
         int i = rand.nextInt(15);
         boolean raining = worldIn.isRainingAt(pos.above());
         if (raining && i == 1) {

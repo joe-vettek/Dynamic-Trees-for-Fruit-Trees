@@ -1,5 +1,5 @@
 {
-  "type": "fruittrees:hybriding",
+  "type": "fruittrees:hybridizing",
   "conditions": [
     {
       "type": "kiwi:is_loaded",
@@ -7,17 +7,9 @@
     }
   ],
   "ingredients": [
-    {
-      "block": "dtfruittrees:pomelo"
-    },
-    {
-      "block": "dtfruittrees:lemon"
-    },
-    {
-      "block": "dtfruittrees:orange"
-    }
+    "dtfruittrees:pomelo",
+    "dtfruittrees:lemon",
+    "dtfruittrees:orange"
   ],
-  "result": {
-    "block": "dtfruittrees:grapefruit"
-  }
+  "result": "dtfruittrees:grapefruit"
 }

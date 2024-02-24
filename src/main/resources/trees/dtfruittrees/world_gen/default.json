@@ -1,7 +1,7 @@
 [
   {
     "select": {
-      "type": "jungle"
+      "tag": "#minecraft:is_jungle"
     },
     "apply": {
       "species": {
@@ -17,7 +17,7 @@
   },
   {
     "select": {
-      "type": "forest"
+      "tag": "#minecraft:is_forest"
     },
     "apply": {
       "species": {
@@ -33,7 +33,7 @@
   },
   {
     "select": {
-      "type": "plains"
+      "tag": "#forge:is_plains"
     },
     "apply": {
       "species": {
@@ -49,7 +49,7 @@
   },
   {
     "select": {
-      "type": "forest"
+      "tag": "#minecraft:is_forest"
     },
     "apply": {
       "species": {
@@ -63,7 +63,7 @@
   },
   {
     "select": {
-      "type": "plains"
+      "tag": "#forge:is_plains"
     },
     "apply": {
       "species": {

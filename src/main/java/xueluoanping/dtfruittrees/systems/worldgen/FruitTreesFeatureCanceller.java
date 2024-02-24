@@ -16,16 +16,18 @@ public class FruitTreesFeatureCanceller extends FeatureCanceller {
         super(registryName);
     }
 
-
     @Override
-    public boolean shouldCancel(ConfiguredFeature<?, ?> configuredFeature, Set<String> namespaces) {
+    public boolean shouldCancel(ConfiguredFeature<?, ?> configuredFeature, BiomePropertySelectors.NormalFeatureCancellation featureCancellations) {
         // Note it not in ForgeRegistries.FEATURES
         final ResourceLocation featureName =  ForgeRegistries.FEATURES.getKey(configuredFeature.feature());
         if (featureName == null) {
             return false;
         }
         DTFruitTrees.logger(22,featureName);
-        return  namespaces.contains(featureName.toString());
-                // && (WorldGenRegistries.CONFIGURED_FEATURE.getKey(configuredFeature) + "").startsWith("fruittrees");
+        return   false;
+        // && (WorldGenRegistries.CONFIGURED_FEATURE.getKey(configuredFeature) + "").startsWith("fruittrees");
     }
+
+
+
 }

@@ -4,7 +4,7 @@ import com.ferreusveritas.dynamictrees.data.provider.DTBlockTagsProvider;
 import com.ferreusveritas.dynamictrees.data.provider.DTItemTagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.data.event.GatherDataEvent;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 import xueluoanping.dtfruittrees.data.lang.Lang_EN;
 import xueluoanping.dtfruittrees.data.lang.Lang_ZH;
@@ -20,17 +20,17 @@ public class start {
         if (event.includeServer()) {
             DTFruitTrees.logger("Generate recipe");
 
-            generator.addProvider(new RecipeDataProvider(generator));
+            generator.addProvider(event.includeServer(),new RecipeDataProvider(generator));
 
             DTBlockTagsProvider blockTags = new DTBlockTagsProvider(generator, MODID, helper);
-            generator.addProvider(blockTags);
-            generator.addProvider(new DTItemTagsProvider(generator, MODID, blockTags, helper));
+            generator.addProvider(event.includeServer(),blockTags);
+            generator.addProvider(event.includeServer(),new DTItemTagsProvider(generator, MODID, blockTags, helper));
 
-            generator.addProvider(new DTFTLootTableProvider(generator,MODID,helper));
+            generator.addProvider(event.includeServer(),new DTFTLootTableProvider(generator,MODID,helper));
             // generator.addProvider(new GLMProvider(generator, MODID));
 
-            generator.addProvider(new Lang_EN(generator, helper));
-            generator.addProvider(new Lang_ZH(generator, helper));
+            generator.addProvider(event.includeServer(),new Lang_EN(generator, helper));
+            generator.addProvider(event.includeServer(),new Lang_ZH(generator, helper));
 
             // generator.addProvider(new SimpleMP(generator));
 

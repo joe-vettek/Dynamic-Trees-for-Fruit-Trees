@@ -2,27 +2,12 @@ package xueluoanping.dtfruittrees.data.loot;
 
 
 import com.ferreusveritas.dynamictrees.data.provider.DTLootTableProvider;
-import com.ferreusveritas.dynamictrees.deserialisation.JsonDeserialisers;
 import com.ferreusveritas.dynamictrees.resources.Resources;
-
-import com.ferreusveritas.dynamictrees.util.ResourceLocationUtils;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
-
 import net.minecraft.data.HashCache;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.registries.ForgeRegistries;
-import xueluoanping.dtfruittrees.DTFruitTrees;
 
-import java.io.IOException;
-import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 //  I inherited DTLootTableProvider, but many of its functions are private,
 //  so I have to copy them to facilitate modification.
@@ -42,8 +27,9 @@ public class DTFTLootTableProvider extends DTLootTableProvider {
 
     // The reason why these functions appear is that
     // the loot table of the leaves block needs to be overwritten.
+
     @Override
-    public void run(HashCache cache) {
+    public void run(CachedOutput cache) {
 
         Resources.MANAGER.reload(Resources.MANAGER.prepareReload(null, null));
         // Resources.MANAGER.gatherData();

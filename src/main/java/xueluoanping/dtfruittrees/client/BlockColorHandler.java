@@ -11,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -118,7 +118,7 @@ public class BlockColorHandler {
 
     @SubscribeEvent
     @OnlyIn(Dist.CLIENT)
-    public static void registerJsonColorMultipliers(ColorHandlerEvent.Block event) {
+    public static void registerJsonColorMultipliers(RegisterColorHandlersEvent.Block event) {
         // Register programmable custom block color providers for LeavesPropertiesJson
 
         BlockState birchLeaves = Blocks.BIRCH_LEAVES.defaultBlockState();

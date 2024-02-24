@@ -56,6 +56,6 @@ public class Lang_EN extends LangHelper {
         addSpecie("grapefruit","Grapefruit");
         addSpecie("redlove","Redlove");
 
-        DTFruitTrees.logger(ForgeRegistries.ITEMS.getEntries().stream().filter(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName().getNamespace().startsWith("dtfruittrees")).map(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName()).collect(Collectors.toList()));
+        // DTFruitTrees.logger(ForgeRegistries.ITEMS.getEntries().stream().filter(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName().getNamespace().startsWith("dtfruittrees")).map(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName()).collect(Collectors.toList()));
     }
 }

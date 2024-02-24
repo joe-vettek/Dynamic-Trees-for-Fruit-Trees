@@ -3,6 +3,7 @@ package xueluoanping.dtfruittrees.data.recipe.builder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -10,8 +11,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.conditions.ICondition;
 
-import snownee.fruits.hybridization.Hybridization;
 
+import snownee.fruits.hybridization.HybridizationModule;
 import snownee.kiwi.recipe.ModuleLoadedCondition;
 import xueluoanping.dtfruittrees.DTFruitTrees;
 
@@ -35,7 +36,7 @@ public class HybridingRecipeBuilder {
     }
 
     public void build(Consumer<FinishedRecipe> consumerIn) {
-        consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID,"hybriding/"+ this.result.getRegistryName().getPath()), this.currentConditions, this.ingredients, this.result));
+        consumerIn.accept(new Result(new ResourceLocation(DTFruitTrees.MOD_ID, "hybriding/" + Registry.BLOCK.getKey(this.result).getPath()), this.currentConditions, this.ingredients, this.result));
     }
 
     public void build(Consumer<FinishedRecipe> consumerIn, ResourceLocation id) {
@@ -69,7 +70,7 @@ public class HybridingRecipeBuilder {
                 else {
                     JsonObject temp = new JsonObject();
                     temp.addProperty("type", c.getID().toString());
-                   ModuleLoadedCondition.Serializer.INSTANCE.write(temp, (ModuleLoadedCondition) c);
+                    ModuleLoadedCondition.Serializer.INSTANCE.write(temp, (ModuleLoadedCondition) c);
                     conds.add(temp);
                 }
             }
@@ -79,17 +80,12 @@ public class HybridingRecipeBuilder {
 
 
             this.ingredients.forEach(block -> {
-                JsonObject fluid = new JsonObject();
-                fluid.addProperty("block", block.getRegistryName().toString());
-                arrayIngredients.add(fluid);
+                arrayIngredients.add(Registry.BLOCK.getKey(block).toString());
             });
             json.add("ingredients", arrayIngredients);
 
-            // JsonObject arrayFluids = new JsonObject();
-            JsonObject fluid = new JsonObject();
-            fluid.addProperty("block", this.result.getRegistryName().toString());
-            // arrayFluids.add(fluid);
-            json.add("result", fluid);
+
+            json.addProperty("result",  Registry.BLOCK.getKey(this.result).toString());
         }
 
         @Override
@@ -104,7 +100,7 @@ public class HybridingRecipeBuilder {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return Hybridization.SERIALIZER;
+            return HybridizationModule.SERIALIZER;
         }
 
 

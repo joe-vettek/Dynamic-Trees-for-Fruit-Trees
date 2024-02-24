@@ -9,9 +9,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import snownee.fruits.Hooks;
-import snownee.fruits.hybridization.Hybridization;
-import xueluoanping.dtfruittrees.DTFruitTrees;
-import xueluoanping.dtfruittrees.systems.leaves.DynamicFruitLeavesBlock;
 
 @Mixin({snownee.fruits.Hooks.class})
 public class MixinHook {

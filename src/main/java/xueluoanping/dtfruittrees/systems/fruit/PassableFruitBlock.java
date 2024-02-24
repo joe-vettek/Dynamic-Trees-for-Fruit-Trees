@@ -8,6 +8,7 @@ import com.ferreusveritas.dynamictrees.util.AgeProperties;
 
 import com.ferreusveritas.dynamictrees.util.LevelContext;
 import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -53,7 +54,8 @@ public class PassableFruitBlock extends FruitBlock {
     }
 
 
-    public void doTick(BlockState state, Level level, BlockPos pos, Random random) {
+    @Override
+    public void doTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
         if (!this.isSupported(level, pos, state)) {
             drop(level, pos, state);
             return;

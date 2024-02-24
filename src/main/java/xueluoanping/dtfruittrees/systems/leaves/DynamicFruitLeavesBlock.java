@@ -7,6 +7,7 @@ import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -41,7 +42,7 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
 
 
     @Override
-    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, Random rand) {
+    public void randomTick(BlockState state, ServerLevel world, BlockPos pos, RandomSource rand) {
         super.randomTick(state, world, pos, rand);
         int nowAge = state.getValue(AGE);
         if (nowAge < 2) {
@@ -71,11 +72,11 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
         return true;
     }
 
-    public boolean isBonemealSuccess(Level worldIn, Random rand, BlockPos pos, BlockState state) {
+    public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return true;
     }
 
-    public void performBonemeal(ServerLevel world, Random rand, BlockPos pos, BlockState state) {
+    public void performBonemeal(ServerLevel world, RandomSource rand, BlockPos pos, BlockState state) {
         if (state.getValue(AGE) >= 2) {
             world.setBlockAndUpdate(pos, state.setValue(AGE, 0));
         } else {
