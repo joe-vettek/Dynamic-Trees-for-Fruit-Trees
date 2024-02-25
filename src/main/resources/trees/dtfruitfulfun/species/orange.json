@@ -36,6 +36,7 @@
                 "fruit":"dtfruitfulfun:orange",
                 "fruiting_radius": 6
             }
-        }
+        },
+        "bee_nest"
     ]
 }

@@ -9,7 +9,7 @@
         "random": {
           "dtfruitfulfun:citron": 1,
           "dtfruitfulfun:lime": 1,
-          "dtfruitfulfun:orange": 1,
+          "dtfruitfulfun:tangerine": 1,
           "...": 50
         }
       }
@@ -25,7 +25,7 @@
         "random": {
           "dtfruitfulfun:citron": 1,
           "dtfruitfulfun:lime": 1,
-          "dtfruitfulfun:orange": 1,
+          "dtfruitfulfun:tangerine": 1,
           "...": 60
         }
       }
@@ -41,7 +41,7 @@
         "random": {
           "dtfruitfulfun:citron": 1,
           "dtfruitfulfun:lime": 1,
-          "dtfruitfulfun:orange": 1,
+          "dtfruitfulfun:tangerine": 1,
           "...": 150
         }
       }

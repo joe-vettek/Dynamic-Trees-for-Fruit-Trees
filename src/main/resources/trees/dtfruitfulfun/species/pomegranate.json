@@ -38,6 +38,7 @@
                 "fruit":"dtfruitfulfun:pomegranate",
                 "fruiting_radius": 4
             }
-        }
+        },
+        "bee_nest"
     ]
 }

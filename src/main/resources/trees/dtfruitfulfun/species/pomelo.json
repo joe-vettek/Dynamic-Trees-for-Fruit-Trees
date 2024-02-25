@@ -36,6 +36,7 @@
                 "fruit":"dtfruitfulfun:pomelo",
                 "fruiting_radius": 6
             }
-        }
+        },
+        "bee_nest"
     ]
 }
