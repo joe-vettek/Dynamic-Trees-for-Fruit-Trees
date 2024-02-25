@@ -1,7 +1,11 @@
 package xueluoanping.dtfruitfulfun.mixin;
 
 
+import com.ferreusveritas.dynamictrees.DynamicTrees;
 import com.ferreusveritas.dynamictrees.block.FruitBlock;
+import com.ferreusveritas.dynamictrees.block.leaves.DynamicLeavesBlock;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,6 +43,8 @@ public class MixinHook {
                 cir.setReturnValue(state -> {
                     if (state.getBlock() instanceof FruitBlock)
                         return true;
+                    if (state.getBlock() instanceof DynamicLeavesBlock && BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation(DynamicTrees.MOD_ID, "cherry_leaves")))
+                        return true;
                     else if (state.hasProperty(BlockStateProperties.WATERLOGGED) && state.getValue(BlockStateProperties.WATERLOGGED)) {
                         return false;
                     } else {
@@ -53,7 +59,10 @@ public class MixinHook {
                                 return state.getValue(FruitLeavesBlock.AGE) == 2;
                             }
                         } else {
-                            return (!(state.getBlock() instanceof LeavesBlock) || !state.hasProperty(LeavesBlock.PERSISTENT) || !((Boolean) state.getValue(LeavesBlock.PERSISTENT))) && original.test(state);
+                            return (!(state.getBlock() instanceof LeavesBlock)
+                                    || !state.hasProperty(LeavesBlock.PERSISTENT)
+                                    || !((Boolean) state.getValue(LeavesBlock.PERSISTENT)))
+                                    && original.test(state);
                         }
                     }
                 });

@@ -1,5 +1,6 @@
 {
   "type": "fruitfulfun:hybridizing",
+
   "pollens": [
     "dtfruitfulfun:redlove",
     "pink_petals"
@@ -8,8 +9,8 @@
     "pink_petals"
   ],
   "post": {
-    "type": "place",
-    "block": "fruitfulfun:peach_pink_petals"
+    "type": "drop_item",
+    "item": "fruitfulfun:peach_pink_petals"
   },
   "conditions": [
     {
@@ -17,5 +18,7 @@
       "type": "kiwi:is_loaded"
     }
   ],
-  "hide_in_viewer": true
+  "comment": "tip.dtfruitfulfun.hybridizing",
+  "group": "dtfruitfulfun:hybridizing",
+  "ghost": true
 }

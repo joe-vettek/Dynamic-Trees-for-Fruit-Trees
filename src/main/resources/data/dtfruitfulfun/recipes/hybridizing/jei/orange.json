@@ -5,15 +5,8 @@
     "dtfruitfulfun:tangerine"
   ],
   "post": {
-    "type": "place",
-    "block": {
-      "blocks": [
-        "dtfruitfulfun:orange"
-      ],
-      "state": {
-        "age": 0
-      }
-    }
+    "type": "drop_item",
+    "item": "dtfruitfulfun:orange_seed"
   },
   "conditions": [
     {
@@ -21,5 +14,7 @@
       "type": "kiwi:is_loaded"
     }
   ],
-  "hide_in_viewer": true
+  "comment": "tip.dtfruitfulfun.hybridizing",
+  "group": "dtfruitfulfun:hybridizing",
+  "ghost": true
 }

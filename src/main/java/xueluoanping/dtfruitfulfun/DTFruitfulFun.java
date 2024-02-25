@@ -68,6 +68,7 @@ public class DTFruitfulFun {
         //                map(m->m.getMessageSupplier().get()).
         //                collect(Collectors.toList()));
         FFCommonConfig.villageAppleTreeWorldGen=false;
+        FFCommonConfig.appleSaplingFromHeroOfTheVillage=false;
     }
 
 

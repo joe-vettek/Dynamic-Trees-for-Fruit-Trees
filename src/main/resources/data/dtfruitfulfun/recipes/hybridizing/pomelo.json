@@ -20,5 +20,6 @@
       "module": "fruitfulfun:bee",
       "type": "kiwi:is_loaded"
     }
-  ]
+  ],
+  "hide_in_viewer": true
 }

@@ -37,5 +37,6 @@
   "species.dtfruitfulfun.orange": "甜橙树",
   "species.dtfruitfulfun.pomegranate": "石榴树",
   "species.dtfruitfulfun.pomelo": "柚子树",
-  "species.dtfruitfulfun.redlove": "红心果树"
+  "recipeType.fruitfulfun.hybridizing/dtfruitfulfun/hybridizing": "蜜蜂授粉（更有活力的）",
+  "tip.dtfruitfulfun.hybridizing": "当它们种植在一起时，蜜蜂会收集花粉，可能会长出新的果实，从中你可以获得新的种子。"
 }

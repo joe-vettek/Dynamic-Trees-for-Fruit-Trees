@@ -46,33 +46,5 @@
         }
       }
     }
-  },
-  {
-    "select": {
-      "tag": "#minecraft:is_forest"
-    },
-    "apply": {
-      "species": {
-        "method": "splice_before",
-        "random": {
-          "dtfruitfulfun:cherry": 1,
-          "...": 100
-        }
-      }
-    }
-  },
-  {
-    "select": {
-      "tag": "#forge:is_plains"
-    },
-    "apply": {
-      "species": {
-        "method": "splice_before",
-        "random": {
-          "dtfruitfulfun:cherry": 1,
-          "...": 200
-        }
-      }
-    }
   }
 ]

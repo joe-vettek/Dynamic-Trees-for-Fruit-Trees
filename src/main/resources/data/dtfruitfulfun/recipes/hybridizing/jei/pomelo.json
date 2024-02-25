@@ -1,19 +1,12 @@
 {
   "type": "fruitfulfun:hybridizing",
   "pollens": [
-    "dtfruitfulfun:lime",
+    "dtfruitfulfun:tangerine",
     "dtfruitfulfun:citron"
   ],
   "post": {
-    "type": "place",
-    "block": {
-      "blocks": [
-        "dtfruitfulfun:lemon"
-      ],
-      "state": {
-        "age": 0
-      }
-    }
+    "type": "drop_item",
+    "item": "dtfruitfulfun:pomelo_seed"
   },
   "conditions": [
     {
@@ -21,5 +14,7 @@
       "type": "kiwi:is_loaded"
     }
   ],
-  "hide_in_viewer": true
+  "comment": "tip.dtfruitfulfun.hybridizing",
+  "group": "dtfruitfulfun:hybridizing",
+  "ghost": true
 }

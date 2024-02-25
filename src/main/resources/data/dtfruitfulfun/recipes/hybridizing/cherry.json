@@ -8,13 +8,22 @@
     "dynamictrees:cherry_leaves"
   ],
   "post": {
-    "type": "drop_item",
-    "item": "fruitfulfun:cherry"
+    "type": "place",
+    "block": {
+      "blocks": [
+        "dtfruitfulfun:cherry"
+      ],
+      "state": {
+        "age": 0
+      },
+      "offsetY": -1
+    }
   },
   "conditions": [
     {
       "module": "fruitfulfun:bee",
       "type": "kiwi:is_loaded"
     }
-  ]
+  ],
+  "hide_in_viewer": true
 }

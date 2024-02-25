@@ -8,8 +8,11 @@ import com.ferreusveritas.dynamictrees.util.AgeProperties;
 
 import com.ferreusveritas.dynamictrees.util.LevelContext;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.animal.FlyingAnimal;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -20,8 +23,9 @@ import net.minecraft.world.phys.shapes.EntityCollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeHooks;
+import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 
-public class PassableFruitBlock extends FruitBlock {
+public class PassableFruitBlock extends NamedFruitBlock {
     public PassableFruitBlock(Properties properties, Fruit fruit) {
         super(properties, fruit);
     }
@@ -35,7 +39,7 @@ public class PassableFruitBlock extends FruitBlock {
                     && pState.getBlock() instanceof FruitBlock)
             // && ((FruitBlock) (pState.getBlock())).getAge(pState) == 0)
             {
-                return  Shapes.empty();
+                return Shapes.empty();
             }
         }
 
@@ -72,5 +76,6 @@ public class PassableFruitBlock extends FruitBlock {
             super.doTick(state, level, pos, random);
 
     }
+
 
 }

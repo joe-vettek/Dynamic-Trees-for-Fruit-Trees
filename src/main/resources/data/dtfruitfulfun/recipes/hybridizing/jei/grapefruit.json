@@ -10,15 +10,8 @@
     "trait": "advanced_pollination"
   },
   "post": {
-    "type": "place",
-    "block": {
-      "blocks": [
-        "dtfruitfulfun:grapefruit"
-      ],
-      "state": {
-        "age": 0
-      }
-    }
+    "type": "drop_item",
+    "item": "dtfruitfulfun:grapefruit_seed"
   },
   "conditions": [
     {
@@ -26,5 +19,7 @@
       "type": "kiwi:is_loaded"
     }
   ],
-  "hide_in_viewer": true
+  "comment": "tip.dtfruitfulfun.hybridizing",
+  "group": "dtfruitfulfun:hybridizing",
+  "ghost": true
 }

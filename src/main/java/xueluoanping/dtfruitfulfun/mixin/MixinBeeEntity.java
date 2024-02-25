@@ -1,8 +1,12 @@
 package xueluoanping.dtfruitfulfun.mixin;
 
 
+import com.ferreusveritas.dynamictrees.DynamicTrees;
 import com.ferreusveritas.dynamictrees.block.FruitBlock;
+import com.ferreusveritas.dynamictrees.block.leaves.DynamicLeavesBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bee;
@@ -27,12 +31,16 @@ public abstract class MixinBeeEntity extends Animal {
         {
             // DTFruitTrees.logger(pos);
             BlockState state = level().getBlockState(pos);
-
-            if (level().isLoaded(pos) && state.getBlock() instanceof FruitBlock) {
-                // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
-                // DTFruitTrees.logger(state);
-                cir.setReturnValue(true);
+            if (level().isLoaded(pos)) {
+                if (state.getBlock() instanceof FruitBlock) {
+                    // if (((FruitBlock) state.getBlock()).getAge(state) == 0)
+                    // DTFruitTrees.logger(state);
+                    cir.setReturnValue(true);
+                }
+                if (state.getBlock() instanceof DynamicLeavesBlock && BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation(DynamicTrees.MOD_ID, "cherry_leaves")))
+                    cir.setReturnValue(true);
             }
+
 
         }
     }

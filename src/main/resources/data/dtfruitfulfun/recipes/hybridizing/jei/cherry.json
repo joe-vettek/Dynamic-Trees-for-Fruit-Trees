@@ -1,21 +1,23 @@
 {
   "type": "fruitfulfun:hybridizing",
-  "ghost": true,
   "pollens": [
-    "dtfruitfulfun:redlove",
+    "dynamictrees:cherry_leaves",
     "pink_petals"
   ],
   "ending_step": [
-    "pink_petals"
+    "dynamictrees:cherry_leaves"
   ],
   "post": {
     "type": "drop_item",
-    "item": "fruitfulfun:peach_pink_petals"
+    "item": "dtfruitfulfun:cherry_seed"
   },
   "conditions": [
     {
       "module": "fruitfulfun:bee",
       "type": "kiwi:is_loaded"
     }
-  ]
+  ],
+  "comment": "tip.dtfruitfulfun.hybridizing",
+  "group": "dtfruitfulfun:hybridizing",
+  "ghost": true
 }

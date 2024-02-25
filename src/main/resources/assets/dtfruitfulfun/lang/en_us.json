@@ -37,5 +37,7 @@
   "species.dtfruitfulfun.orange": "Orange",
   "species.dtfruitfulfun.pomegranate": "Pomegranate",
   "species.dtfruitfulfun.pomelo": "Pomelo",
-  "species.dtfruitfulfun.redlove": "Redlove"
+  "species.dtfruitfulfun.redlove": "Redlove",
+  "recipeType.fruitfulfun.hybridizing/dtfruitfulfun/hybridizing": "Bee Pollinating (Dynamic)",
+  "tip.dtfruitfulfun.hybridizing": "When these are planted together, bees collect their pollen, potentially growing new fruit from which you can obtain new seeds."
 }
