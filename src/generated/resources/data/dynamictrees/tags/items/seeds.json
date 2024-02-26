@@ -1,14 +1,14 @@
 {
-  "replace": false,
   "values": [
     "dtfruitfulfun:cherry_seed",
     "dtfruitfulfun:citron_seed",
     "dtfruitfulfun:grapefruit_seed",
     "dtfruitfulfun:lemon_seed",
     "dtfruitfulfun:lime_seed",
-    "dtfruitfulfun:tangerine_seed",
     "dtfruitfulfun:orange_seed",
+    "dtfruitfulfun:pomegranate_seed",
     "dtfruitfulfun:pomelo_seed",
-    "dtfruitfulfun:redlove_seed"
+    "dtfruitfulfun:redlove_seed",
+    "dtfruitfulfun:tangerine_seed"
   ]
 }

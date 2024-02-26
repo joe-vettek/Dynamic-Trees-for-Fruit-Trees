@@ -13,18 +13,18 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "dtfruitfulfun:tangerine",
+              "block": "dtfruitfulfun:pomegranate",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "age": "3"
               }
             }
           ],
-          "name": "fruitfulfun:tangerine"
+          "name": "fruitfulfun:pomegranate"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "dtfruitfulfun:blocks/tangerine"
+  "random_sequence": "dtfruitfulfun:blocks/pomegranate"
 }

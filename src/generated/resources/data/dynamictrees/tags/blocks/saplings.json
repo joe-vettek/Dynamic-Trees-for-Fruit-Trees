@@ -1,14 +1,14 @@
 {
-  "replace": false,
   "values": [
     "dtfruitfulfun:cherry_sapling",
     "dtfruitfulfun:citron_sapling",
     "dtfruitfulfun:grapefruit_sapling",
     "dtfruitfulfun:lemon_sapling",
     "dtfruitfulfun:lime_sapling",
-    "dtfruitfulfun:tangerine_sapling",
     "dtfruitfulfun:orange_sapling",
+    "dtfruitfulfun:pomegranate_sapling",
     "dtfruitfulfun:pomelo_sapling",
-    "dtfruitfulfun:redlove_sapling"
+    "dtfruitfulfun:redlove_sapling",
+    "dtfruitfulfun:tangerine_sapling"
   ]
 }

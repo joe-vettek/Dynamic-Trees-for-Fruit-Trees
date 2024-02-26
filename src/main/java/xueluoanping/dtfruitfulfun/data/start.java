@@ -26,7 +26,8 @@ public class start {
         if (event.includeServer()) {
             DTFruitfulFun.logger("Generate recipe");
 
-            generator.addProvider(event.includeServer(),new RecipeDataProvider(packOutput));
+            // work it until 1.21
+            // generator.addProvider(event.includeServer(),new RecipeDataProvider(packOutput));
 
             DTBlockTagsProvider blockTags = new DTBlockTagsProvider(packOutput,lookupProvider, MODID, helper);
             generator.addProvider(event.includeServer(),blockTags);

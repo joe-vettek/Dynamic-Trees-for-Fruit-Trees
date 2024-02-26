@@ -1,14 +1,14 @@
 {
-  "replace": false,
   "values": [
     "dtfruitfulfun:cherry_leaves",
     "dtfruitfulfun:citron_leaves",
     "dtfruitfulfun:grapefruit_leaves",
     "dtfruitfulfun:lemon_leaves",
     "dtfruitfulfun:lime_leaves",
-    "dtfruitfulfun:tangerine_leaves",
     "dtfruitfulfun:orange_leaves",
+    "dtfruitfulfun:pomegranate_leaves",
     "dtfruitfulfun:pomelo_leaves",
-    "dtfruitfulfun:redlove_leaves"
+    "dtfruitfulfun:redlove_leaves",
+    "dtfruitfulfun:tangerine_leaves"
   ]
 }

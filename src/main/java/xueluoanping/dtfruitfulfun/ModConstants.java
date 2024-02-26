@@ -13,13 +13,13 @@ public class ModConstants {
     public static final LazyGet<Block> POMEGRANATE_LEAVES = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomegranate_leaves")));
     public static final LazyGet<Block> POMEGRANATE = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomegranate")));
     public static final LazyGet<Block> POMEGRANATE_SAPLING = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomegranate_sapling")));
-    public static final LazyGet<Block> POMEGRANATE_BRANCH = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomegranate_branch")));
+    // public static final LazyGet<Block> POMEGRANATE_BRANCH = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomegranate_branch")));
     public static final LazyGet<Item> POMEGRANATE_SEED = LazyGet.of(() -> RegisterFinderUtil.getItem(DTFruitfulFun.rl("pomegranate_seed")));
 
     public static final LazyGet<Block> CHERRY_LEAVES = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_leaves")));
     public static final LazyGet<Block> CHERRY = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry")));
     public static final LazyGet<Block> CHERRY_SAPLING = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_sapling")));
-    public static final LazyGet<Block> CHERRY_BRANCH = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_branch")));
+    // public static final LazyGet<Block> CHERRY_BRANCH = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_branch")));
     public static final LazyGet<Item> CHERRY_SEED = LazyGet.of(() -> RegisterFinderUtil.getItem(DTFruitfulFun.rl("cherry_seed")));
 
     public static final LazyGet<Block> TANGERINE_LEAVES = LazyGet.of(() -> RegisterFinderUtil.getBlock(DTFruitfulFun.rl("tangerine_leaves")));

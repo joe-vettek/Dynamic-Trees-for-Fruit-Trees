@@ -1,14 +1,12 @@
 {
-  "replace": false,
   "values": [
-    "dtfruitfulfun:cherry_branch",
     "dtfruitfulfun:citron_branch",
     "dtfruitfulfun:grapefruit_branch",
     "dtfruitfulfun:lemon_branch",
     "dtfruitfulfun:lime_branch",
-    "dtfruitfulfun:tangerine_branch",
     "dtfruitfulfun:orange_branch",
     "dtfruitfulfun:pomelo_branch",
-    "dtfruitfulfun:redlove_branch"
+    "dtfruitfulfun:redlove_branch",
+    "dtfruitfulfun:tangerine_branch"
   ]
 }

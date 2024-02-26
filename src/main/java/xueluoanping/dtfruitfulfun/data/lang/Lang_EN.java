@@ -17,13 +17,13 @@ public class Lang_EN extends LangHelper {
         add(DTFruitfulFun.MOD_ID, "Dynamic Trees for Fruit Trees");
 
         add(ModConstants.POMEGRANATE_SAPLING.get(), "Pomegranate Sapling");
-        add(ModConstants.POMEGRANATE_BRANCH.get(), "Pomegranate Tree");
-        add(ModConstants.POMEGRANATE_SEED.get(), "Pomegranate Seed");
+        // add(ModConstants.POMEGRANATE_BRANCH.get(), "Pomegranate Tree");
+        add(ModConstants.POMEGRANATE_SEED.get(), "Pomegranate Aril");
         addSpecie("pomegranate","Pomegranate Fruit");
 
         add(ModConstants.CHERRY_SAPLING.get(), "Cherry Sapling");
-        add(ModConstants.CHERRY_BRANCH.get(), "Cherry Tree");
-        add(ModConstants.CHERRY_SEED.get(), "Cherry Seed");
+        // add(ModConstants.CHERRY_BRANCH.get(), "Cherry Tree");
+        add(ModConstants.CHERRY_SEED.get(), "Cherry Pit");
         addSpecie("cherry","Cherry Fruit");
 
         add(ModConstants.TANGERINE_SAPLING.get(), "Tangerine Sapling");
@@ -66,7 +66,8 @@ public class Lang_EN extends LangHelper {
         add(ModConstants.REDLOVE_SEED.get(), "Redlove Seed");
         addSpecie("redlove","Redlove Fruit");
 
-
+        add("recipeType.fruitfulfun.hybridizing/dtfruitfulfun/hybridizing","Bee Pollinating (Dynamic)");
+        add("tip.dtfruitfulfun.hybridizing","When these are planted together, bees collect their pollen, potentially growing new fruit from which you can obtain new seeds.");
         // DTFruitTrees.logger(ForgeRegistries.ITEMS.getEntries().stream().filter(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName().getNamespace().startsWith("dtfruittrees")).map(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName()).collect(Collectors.toList()));
     }
 }

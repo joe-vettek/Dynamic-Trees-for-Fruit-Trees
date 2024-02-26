@@ -28,7 +28,7 @@ public class HybridingRecipeBuilder {
     public HybridingRecipeBuilder(List<Block> ingredients, Block result) {
         this.ingredients = ingredients;
         this.result = result;
-        currentConditions.add(new ModuleLoadedCondition(new ResourceLocation("fruittrees:hybridization")));
+        currentConditions.add(new ModuleLoadedCondition(new ResourceLocation("hybridization")));
     }
 
     public static HybridingRecipeBuilder create(List<Block> ingredients, Block result) {
