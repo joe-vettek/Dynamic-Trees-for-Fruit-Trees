@@ -3,6 +3,7 @@ package xueluoanping.dtfruitfulfun.data.lang;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import xueluoanping.dtfruitfulfun.DTFruitfulFun;
+import xueluoanping.dtfruitfulfun.ModConstants;
 import xueluoanping.dtfruitfulfun.util.RegisterFinderUtil;
 
 public class Lang_EN extends LangHelper {
@@ -15,42 +16,56 @@ public class Lang_EN extends LangHelper {
     protected void addTranslations() {
         add(DTFruitfulFun.MOD_ID, "Dynamic Trees for Fruit Trees");
 
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_sapling")), "Cherry Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("tangerine_sapling")), "Tangerine Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lime_sapling")), "Lime Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("citron_sapling")), "Citron Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomelo_sapling")), "Pomelo Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("orange_sapling")), "Orange Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lemon_sapling")), "Lemon Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("grapefruit_sapling")), "Grapefruit Sapling");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("redlove_sapling")), "Redlove Sapling");
-        // add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry_branch")), "Cherry Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("tangerine_branch")), "Tangerine Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lime_branch")), "Lime Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("citron_branch")), "Citron Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomelo_branch")), "Pomelo Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("orange_branch")), "Orange Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lemon_branch")), "Lemon Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("grapefruit_branch")), "Grapefruit Tree");
-        add(RegisterFinderUtil.getBlock(DTFruitfulFun.rl("redlove_branch")), "Redlove Tree");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("cherry_seed")), "Cherry Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("tangerine_seed")), "Tangerine Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("lime_seed")), "Lime Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("citron_seed")), "Citron Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("pomelo_seed")), "Pomelo Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("orange_seed")), "Orange Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("lemon_seed")), "Lemon Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("grapefruit_seed")), "Grapefruit Seed");
-        add(RegisterFinderUtil.getItem(DTFruitfulFun.rl("redlove_seed")), "Redlove Seed");
+        add(ModConstants.POMEGRANATE_SAPLING.get(), "Pomegranate Sapling");
+        add(ModConstants.POMEGRANATE_BRANCH.get(), "Pomegranate Tree");
+        add(ModConstants.POMEGRANATE_SEED.get(), "Pomegranate Seed");
+        addSpecie("pomegranate","Pomegranate Fruit");
+
+        add(ModConstants.CHERRY_SAPLING.get(), "Cherry Sapling");
+        add(ModConstants.CHERRY_BRANCH.get(), "Cherry Tree");
+        add(ModConstants.CHERRY_SEED.get(), "Cherry Seed");
         addSpecie("cherry","Cherry Fruit");
-        addSpecie("tangerine","Tangerine");
-        addSpecie("lime","Lime");
-        addSpecie("citron","Citron");
-        addSpecie("pomelo","Pomelo");
-        addSpecie("orange","Orange");
-        addSpecie("lemon","Lemon");
-        addSpecie("grapefruit","Grapefruit");
-        addSpecie("redlove","Redlove");
+
+        add(ModConstants.TANGERINE_SAPLING.get(), "Tangerine Sapling");
+        add(ModConstants.TANGERINE_BRANCH.get(), "Tangerine Tree");
+        add(ModConstants.TANGERINE_SEED.get(), "Tangerine Seed");
+        addSpecie("tangerine","Tangerine Fruit");
+
+        add(ModConstants.LIME_SAPLING.get(), "Lime Sapling");
+        add(ModConstants.LIME_BRANCH.get(), "Lime Tree");
+        add(ModConstants.LIME_SEED.get(), "Lime Seed");
+        addSpecie("lime","Lime Fruit");
+
+        add(ModConstants.CITRON_SAPLING.get(), "Citron Sapling");
+        add(ModConstants.CITRON_BRANCH.get(), "Citron Tree");
+        add(ModConstants.CITRON_SEED.get(), "Citron Seed");
+        addSpecie("citron","Citron Fruit");
+
+        add(ModConstants.POMELO_SAPLING.get(), "Pomelo Sapling");
+        add(ModConstants.POMELO_BRANCH.get(), "Pomelo Tree");
+        add(ModConstants.POMELO_SEED.get(), "Pomelo Seed");
+        addSpecie("pomelo","Pomelo Fruit");
+
+        add(ModConstants.ORANGE_SAPLING.get(), "Orange Sapling");
+        add(ModConstants.ORANGE_BRANCH.get(), "Orange Tree");
+        add(ModConstants.ORANGE_SEED.get(), "Orange Seed");
+        addSpecie("orange","Orange Fruit");
+
+        add(ModConstants.LEMON_SAPLING.get(), "Lemon Sapling");
+        add(ModConstants.LEMON_BRANCH.get(), "Lemon Tree");
+        add(ModConstants.LEMON_SEED.get(), "Lemon Seed");
+        addSpecie("lemon","Lemon Fruit");
+
+        add(ModConstants.GRAPEFRUIT_SAPLING.get(), "Grapefruit Sapling");
+        add(ModConstants.GRAPEFRUIT_BRANCH.get(), "Grapefruit Tree");
+        add(ModConstants.GRAPEFRUIT_SEED.get(), "Grapefruit Seed");
+        addSpecie("grapefruit","Grapefruit Fruit");
+
+        add(ModConstants.REDLOVE_SAPLING.get(), "Redlove Sapling");
+        add(ModConstants.REDLOVE_BRANCH.get(), "Redlove Tree");
+        add(ModConstants.REDLOVE_SEED.get(), "Redlove Seed");
+        addSpecie("redlove","Redlove Fruit");
+
 
         // DTFruitTrees.logger(ForgeRegistries.ITEMS.getEntries().stream().filter(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName().getNamespace().startsWith("dtfruittrees")).map(registryKeyBlockEntry -> registryKeyBlockEntry.getValue().getRegistryName()).collect(Collectors.toList()));
     }

@@ -1,10 +1,8 @@
 package xueluoanping.dtfruitfulfun.mixin;
 
-import java.util.List;
 
-import com.ferreusveritas.dynamictrees.DynamicTrees;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+
+import com.google.common.collect.ImmutableList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -13,8 +11,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import net.minecraft.world.entity.ai.behavior.GiveGiftToHero;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.item.ItemStack;
-import snownee.fruits.CoreModule;
-import snownee.fruits.FFCommonConfig;
+import xueluoanping.dtfruitfulfun.ModConstants;
+
+import java.util.List;
+
 
 @Mixin(GiveGiftToHero.class)
 public class MixinGiveGiftToHeroMixin {
@@ -22,7 +22,7 @@ public class MixinGiveGiftToHeroMixin {
     private void getItemToThrow(Villager villager, CallbackInfoReturnable<List<ItemStack>> ci) {
         // FFCommonConfig.appleSaplingFromHeroOfTheVillage &&
         if ( villager.isBaby()) {
-            ci.setReturnValue(List.of(BuiltInRegistries.ITEM.get(new ResourceLocation(DynamicTrees.MOD_ID, "apple_oak_seed")).getDefaultInstance()));
+            ci.setReturnValue(ImmutableList.of(ModConstants.APPLE_OAK_SEED.get().getDefaultInstance()));
         }
     }
 }

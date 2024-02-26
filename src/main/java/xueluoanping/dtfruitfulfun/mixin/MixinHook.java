@@ -17,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import snownee.fruits.Hooks;
 import snownee.fruits.block.FruitLeavesBlock;
 import snownee.fruits.cherry.block.CherryLeavesBlock;
+import xueluoanping.dtfruitfulfun.ModConstants;
 
 import java.util.function.Predicate;
 
@@ -43,7 +44,7 @@ public class MixinHook {
                 cir.setReturnValue(state -> {
                     if (state.getBlock() instanceof FruitBlock)
                         return true;
-                    if (state.getBlock() instanceof DynamicLeavesBlock && BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation(DynamicTrees.MOD_ID, "cherry_leaves")))
+                    if (state.getBlock() instanceof DynamicLeavesBlock && state.getBlock()== ModConstants.CHERRY_LEAVES_V.get())
                         return true;
                     else if (state.hasProperty(BlockStateProperties.WATERLOGGED) && state.getValue(BlockStateProperties.WATERLOGGED)) {
                         return false;

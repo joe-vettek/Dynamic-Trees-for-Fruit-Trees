@@ -16,6 +16,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import xueluoanping.dtfruitfulfun.ModConstants;
 
 @Mixin({Bee.class})
 public abstract class MixinBeeEntity extends Animal {
@@ -37,7 +38,7 @@ public abstract class MixinBeeEntity extends Animal {
                     // DTFruitTrees.logger(state);
                     cir.setReturnValue(true);
                 }
-                if (state.getBlock() instanceof DynamicLeavesBlock && BuiltInRegistries.BLOCK.getKey(state.getBlock()).equals(new ResourceLocation(DynamicTrees.MOD_ID, "cherry_leaves")))
+                if (state.getBlock() instanceof DynamicLeavesBlock &&state.getBlock()== ModConstants.CHERRY_LEAVES_V.get())
                     cir.setReturnValue(true);
             }
 

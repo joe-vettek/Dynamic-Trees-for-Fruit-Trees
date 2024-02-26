@@ -41,10 +41,10 @@ public class MixinFruit extends RegistryEntry<Fruit> {
         if (Objects.equals(System.getProperty("forgegradle.runs.runData"), "true")) {
 
             if (this.itemStack == null && this.block != null) {
-                if ((BuiltInRegistries.BLOCK.getKey(block.get()) + "").startsWith(DTFruitfulFun.MOD_ID)) {
+                if ((RegisterFinderUtil.getBlockKey(block.get()).getPath() + "").startsWith(DTFruitfulFun.MOD_ID)) {
                     DTFruitfulFun.logger("Now is runData, so need to mixin the " + block.get() + " drop.");
                     this.itemStack = RegisterFinderUtil
-                            .getItem(new ResourceLocation(FruitfulFun.ID, (BuiltInRegistries.BLOCK.getKey(block.get()).getPath())))
+                            .getItem(new ResourceLocation(FruitfulFun.ID,RegisterFinderUtil.getBlockKey(block.get()).getPath()))
                             .getDefaultInstance();
                     this.itemStack = this.itemStack.isEmpty() ? null : this.itemStack;
                 }

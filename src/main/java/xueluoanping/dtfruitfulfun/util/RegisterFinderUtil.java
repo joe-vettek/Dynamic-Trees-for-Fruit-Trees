@@ -12,6 +12,7 @@ public class RegisterFinderUtil {
         return getBlock(new ResourceLocation(s));
     }
 
+    // BuiltInRegistries
     public static Block getBlock(ResourceLocation rs) {
         return ForgeRegistries.BLOCKS.getValue(rs);
     }
@@ -22,5 +23,17 @@ public class RegisterFinderUtil {
 
     public static Item getItem(ResourceLocation rs) {
         return ForgeRegistries.ITEMS.getValue(rs);
+    }
+
+    public static Item getItem(String s, String s2) {
+        return getItem(new ResourceLocation(s, s2));
+    }
+
+    public static ResourceLocation getItemKey(Item s) {
+        return ForgeRegistries.ITEMS.getKey(s);
+    }
+
+    public static ResourceLocation getBlockKey(Block s) {
+        return ForgeRegistries.BLOCKS.getKey(s);
     }
 }

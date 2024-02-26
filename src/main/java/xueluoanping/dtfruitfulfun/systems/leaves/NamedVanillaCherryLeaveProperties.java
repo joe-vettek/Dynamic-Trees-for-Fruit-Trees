@@ -7,7 +7,6 @@ import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ParticleUtils;
 import net.minecraft.util.RandomSource;
@@ -16,6 +15,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import xueluoanping.dtfruitfulfun.ModConstants;
+import xueluoanping.dtfruitfulfun.util.RegisterFinderUtil;
 
 import javax.annotation.Nonnull;
 
@@ -44,7 +45,7 @@ public class NamedVanillaCherryLeaveProperties extends LeavesProperties{
 
             @Override
             public Item asItem() {
-                return BuiltInRegistries.ITEM.get(new ResourceLocation(DynamicTrees.MOD_ID, "cherry_seed"));
+                return ModConstants.CHERRY_SEED_V.get();
             }
         };
     }

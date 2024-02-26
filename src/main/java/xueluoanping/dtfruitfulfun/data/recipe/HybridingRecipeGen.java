@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 
 
+import com.ferreusveritas.dynamictrees.DynamicTrees;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import snownee.kiwi.recipe.ModuleLoadedCondition;
+import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 import xueluoanping.dtfruitfulfun.data.recipe.builder.HybridingRecipeBuilder;
 import xueluoanping.dtfruitfulfun.util.RegisterFinderUtil;
 
@@ -16,16 +18,16 @@ import xueluoanping.dtfruitfulfun.util.RegisterFinderUtil;
 public class HybridingRecipeGen {
     public static void register(Consumer<FinishedRecipe> consumer) {
 
-        Block CHERRY = RegisterFinderUtil.getBlock("dtfruittrees:cherry");
-        Block MANDARIN = RegisterFinderUtil.getBlock("dtfruittrees:mandarin");
-        Block LIME = RegisterFinderUtil.getBlock("dtfruittrees:lime");
-        Block CITRON = RegisterFinderUtil.getBlock("dtfruittrees:citron");
-        Block POMELO = RegisterFinderUtil.getBlock("dtfruittrees:pomelo");
-        Block ORANGE = RegisterFinderUtil.getBlock("dtfruittrees:orange");
-        Block LEMON = RegisterFinderUtil.getBlock("dtfruittrees:lemon");
-        Block GRAPEFRUIT = RegisterFinderUtil.getBlock("dtfruittrees:grapefruit");
-        Block REDLOVE = RegisterFinderUtil.getBlock("dtfruittrees:redlove");
-        Block APPLE = RegisterFinderUtil.getBlock("dynamictrees:apple");
+        Block CHERRY = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("cherry").toString());
+        Block MANDARIN = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("mandarin").toString());
+        Block LIME = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lime").toString());
+        Block CITRON = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("citron").toString());
+        Block POMELO = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("pomelo").toString());
+        Block ORANGE = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("orange").toString());
+        Block LEMON = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("lemon").toString());
+        Block GRAPEFRUIT = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("grapefruit").toString());
+        Block REDLOVE = RegisterFinderUtil.getBlock(DTFruitfulFun.rl("redlove").toString());
+        Block APPLE = RegisterFinderUtil.getBlock(DynamicTrees.location("apple"));
 
         HybridingRecipeBuilder
                 .create(Arrays.asList(POMELO,LEMON, ORANGE),GRAPEFRUIT)
