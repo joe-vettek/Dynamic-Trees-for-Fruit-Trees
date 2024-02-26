@@ -19,11 +19,11 @@ import net.minecraftforge.registries.ForgeRegistries;
 import snownee.fruits.block.FruitLeavesBlock;
 import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-@OnlyIn(Dist.CLIENT)
+@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class BlockColorHandler {
+
+    // Need to wait
     @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
     public static void handleBlockColor(FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             BlockState birchLeaves = Blocks.BIRCH_LEAVES.defaultBlockState();
@@ -86,7 +86,7 @@ public class BlockColorHandler {
                         return 0xE45B55;
                 }
                 return FoliageColor.getEvergreenColor();
-            }, CHERRY_LEAVES, TANGERINE_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMEGRANATE_LEAVES,POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
+            }, CHERRY_LEAVES, TANGERINE_LEAVES, LIME_LEAVES, CITRON_LEAVES, POMEGRANATE_LEAVES, POMELO_LEAVES, ORANGE_LEAVES, LEMON_LEAVES, GRAPEFRUIT_LEAVES, REDLOVE_LEAVES);
 
             Minecraft.getInstance().getBlockColors().register((state, worlds, poss, i) -> {
 
@@ -121,15 +121,15 @@ public class BlockColorHandler {
                 //     return FoliageColors.getBirchColor();
 
                 return -1;
-            }, CHERRY, TANGERINE, LIME, CITRON,POMEGRANATE, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
+            }, CHERRY, TANGERINE, LIME, CITRON, POMEGRANATE, POMELO, ORANGE, LEMON, GRAPEFRUIT, REDLOVE);
 
         });
 
 
     }
 
+
     @SubscribeEvent
-    @OnlyIn(Dist.CLIENT)
     public static void registerJsonColorMultipliers(RegisterColorHandlersEvent.Block event) {
         // Register programmable custom block color providers for LeavesPropertiesJson
 

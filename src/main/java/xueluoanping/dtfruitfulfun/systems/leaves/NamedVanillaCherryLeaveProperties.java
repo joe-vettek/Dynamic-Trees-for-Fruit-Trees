@@ -29,6 +29,7 @@ public class NamedVanillaCherryLeaveProperties extends LeavesProperties{
     @Nonnull
     protected DynamicLeavesBlock createDynamicLeaves(@Nonnull BlockBehaviour.Properties properties) {
         return new DynamicLeavesBlock(this, properties) {
+            @Override
             public void animateTick(@Nonnull BlockState state, @Nonnull Level level, @Nonnull BlockPos pos, @Nonnull RandomSource random) {
                 super.animateTick(state, level, pos, random);
                 if (random.nextInt(10) == 0) {

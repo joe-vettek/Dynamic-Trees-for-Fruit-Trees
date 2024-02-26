@@ -30,7 +30,6 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
     }
 
 
-
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder.add(AGE));
