@@ -18,7 +18,7 @@ public class Lang_ZH extends LangHelper {
 
 	@Override
 	protected void addTranslations() {
-		add(DTFruitfulFun.MOD_ID, "动态的树：果树附属");
+		add(DTFruitfulFun.MOD_ID, "动态的树：妙趣果园附属");
 		add(ModConstants.POMEGRANATE_SAPLING.get(), "石榴树苗");
 		// add(ModConstants.POMEGRANATE_BRANCH.get(), "石榴树");
 		add(ModConstants.POMEGRANATE_SEED.get(), "石榴籽");

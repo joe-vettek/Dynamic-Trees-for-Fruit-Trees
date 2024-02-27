@@ -14,7 +14,7 @@ public class Lang_EN extends LangHelper {
 
     @Override
     protected void addTranslations() {
-        add(DTFruitfulFun.MOD_ID, "Dynamic Trees for Fruit Trees");
+        add(DTFruitfulFun.MOD_ID, "Dynamic Trees for Fruitful Fun");
 
         add(ModConstants.POMEGRANATE_SAPLING.get(), "Pomegranate Sapling");
         // add(ModConstants.POMEGRANATE_BRANCH.get(), "Pomegranate Tree");
