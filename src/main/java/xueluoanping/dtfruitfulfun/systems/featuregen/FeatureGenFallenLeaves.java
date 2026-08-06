@@ -1,16 +1,17 @@
 package xueluoanping.dtfruitfulfun.systems.featuregen;
 
-import com.ferreusveritas.dynamictrees.api.TreeHelper;
-import com.ferreusveritas.dynamictrees.api.configuration.ConfigurationProperty;
-import com.ferreusveritas.dynamictrees.api.network.MapSignal;
-import com.ferreusveritas.dynamictrees.block.branch.BranchBlock;
-import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
-import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeatureConfiguration;
-import com.ferreusveritas.dynamictrees.systems.genfeature.context.PostGenerationContext;
-import com.ferreusveritas.dynamictrees.systems.genfeature.context.PostGrowContext;
-import com.ferreusveritas.dynamictrees.systems.nodemapper.FindEndsNode;
+import com.dtteam.dynamictrees.api.configuration.ConfigurationProperty;
+import com.dtteam.dynamictrees.api.network.MapSignal;
+import com.dtteam.dynamictrees.block.branch.BranchBlock;
+import com.dtteam.dynamictrees.systems.genfeature.GenFeature;
+import com.dtteam.dynamictrees.systems.genfeature.GenFeatureConfiguration;
+import com.dtteam.dynamictrees.systems.genfeature.context.PostGenerationContext;
+import com.dtteam.dynamictrees.systems.genfeature.context.PostGrowContext;
+import com.dtteam.dynamictrees.systems.nodemapper.FindEndsNode;
+import com.dtteam.dynamictrees.tree.TreeHelper;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.MushroomBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 
 import java.util.List;
@@ -30,10 +30,10 @@ public class FeatureGenFallenLeaves extends GenFeature {
     public BlockState getBasicLeafBlock(GenFeatureConfiguration configuration) {
         // return CherryModule.CHERRY_CARPET.defaultBlockState();
 // DTFruitTrees.LOGGER.debug(configuration.getString());
-       return ForgeRegistries.BLOCKS.getValue(new ResourceLocation(configuration.get(CARPET))).defaultBlockState();
+       return BuiltInRegistries.BLOCK.getValue( Identifier.parse(configuration.get(CARPET))).defaultBlockState();
     }
 
-    public FeatureGenFallenLeaves(ResourceLocation registryName) {
+    public FeatureGenFallenLeaves(Identifier registryName) {
         super(registryName);
     }
 

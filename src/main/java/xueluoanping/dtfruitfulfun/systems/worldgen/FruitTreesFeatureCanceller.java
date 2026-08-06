@@ -1,21 +1,22 @@
 package xueluoanping.dtfruitfulfun.systems.worldgen;
 
-import com.ferreusveritas.dynamictrees.api.worldgen.BiomePropertySelectors;
-import com.ferreusveritas.dynamictrees.api.worldgen.FeatureCanceller;
-import net.minecraft.resources.ResourceLocation;
+
+import com.dtteam.dynamictrees.api.worldgen.BiomePropertySelectors;
+import com.dtteam.dynamictrees.api.worldgen.FeatureCanceller;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraftforge.registries.ForgeRegistries;
 import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 
 public class FruitTreesFeatureCanceller extends FeatureCanceller {
-    public FruitTreesFeatureCanceller(ResourceLocation registryName) {
+    public FruitTreesFeatureCanceller(Identifier registryName) {
         super(registryName);
     }
 
     @Override
     public boolean shouldCancel(ConfiguredFeature<?, ?> configuredFeature, BiomePropertySelectors.NormalFeatureCancellation featureCancellations) {
         // Note it not in ForgeRegistries.FEATURES
-        final ResourceLocation featureName =  ForgeRegistries.FEATURES.getKey(configuredFeature.feature());
+        final Identifier featureName =  BuiltInRegistries.FEATURE.getKey(configuredFeature.feature());
         if (featureName == null) {
             return false;
         }

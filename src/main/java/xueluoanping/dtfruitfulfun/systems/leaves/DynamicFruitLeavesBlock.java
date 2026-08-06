@@ -1,17 +1,20 @@
 package xueluoanping.dtfruitfulfun.systems.leaves;
 
 
-import com.ferreusveritas.dynamictrees.block.FruitBlock;
-import com.ferreusveritas.dynamictrees.block.leaves.DynamicLeavesBlock;
-import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
+import com.dtteam.dynamictrees.api.registry.TypedRegistry;
+import com.dtteam.dynamictrees.block.fruit.FruitBlock;
+import com.dtteam.dynamictrees.block.leaves.DynamicLeavesBlock;
+import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,8 +28,8 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
 
     public static final IntegerProperty AGE = FruitLeavesBlock.AGE;
 
-    public DynamicFruitLeavesBlock(LeavesProperties leavesProperties, Properties properties) {
-        super(leavesProperties, properties);
+    public DynamicFruitLeavesBlock(Identifier id, LeavesProperties leavesProperties, Properties properties) {
+        super(id, leavesProperties, properties);
     }
 
 
@@ -68,6 +71,11 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
     }
 
 
+    @Override
+    public boolean isValidBonemealTarget(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
+        return true;
+    }
+
     public boolean isBonemealSuccess(Level worldIn, RandomSource rand, BlockPos pos, BlockState state) {
         return true;
     }
@@ -86,11 +94,9 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
         super.stepOn(p_152431_, p_152432_, p_152433_, p_152434_);
     }
 
-
-
     @Override
-    public void fallOn(Level level, BlockState blockState, BlockPos pos, Entity entity, float fallDistance) {
-        super.fallOn(level, blockState, pos, entity, fallDistance);
+    public void fallOn(Level level, BlockState state, BlockPos pos, Entity entity, double fallDistance) {
+        super.fallOn(level, state, pos, entity, fallDistance);
         BlockPos newPos = pos.immutable();
         dropFruilt(level, newPos, level.getBlockState(newPos));
         newPos = pos.east();
@@ -108,19 +114,13 @@ public class DynamicFruitLeavesBlock extends DynamicLeavesBlock implements Bonem
     }
 
 
-    @Nonnull
     @Override
-    public BlockState updateShape(@Nonnull BlockState stateIn, Direction facing, BlockState facingState, @Nonnull LevelAccessor worldIn, @Nonnull BlockPos currentPos, BlockPos facingPos) {
-        if (worldIn.getBlockState(currentPos.below()).getBlock() instanceof FruitBlock) {
-            stateIn = stateIn.setValue(AGE, 2);
+    protected BlockState updateShape(BlockState state, LevelReader level, ScheduledTickAccess ticks, BlockPos pos, Direction directionToNeighbour, BlockPos neighbourPos, BlockState neighbourState, RandomSource random) {
+        if (level.getBlockState(pos.below()).getBlock() instanceof FruitBlock) {
+            state = state.setValue(AGE, 2);
         }
-        // else if (stateIn.getValue(AGE) == 2 && worldIn.isEmptyBlock(currentPos.below())) {
-        //     stateIn= stateIn.setValue(AGE, 0);
-        // }
-
-        return super.updateShape(stateIn, facing, facingState, worldIn, currentPos, facingPos);
+        return super.updateShape(state, level, ticks, pos, directionToNeighbour, neighbourPos, neighbourState, random);
     }
-
 
 }
 

@@ -1,290 +1,217 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath group: 'org.spongepowered', name: 'mixingradle', version: '0.7+'
-    }
-}
 plugins {
+    id 'java-library'
     id 'eclipse'
+    id 'idea'
     id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.141'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.spongepowered.mixin'
 
-version = "${minecraft_min_version}-forge-${mod_version}"
-group = "${mod_base_package}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = mod_id
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17) // Mojang ships Java 8 to end users, so your mod should target Java 8.
+tasks.named('wrapper', Wrapper).configure {
+    // Define wrapper values here so as to not have to always do so when updating gradlew.properties.
+    // Switching this to Wrapper.DistributionType.ALL will download the full gradle sources that comes with
+    // documentation attached on cursor hover of gradle classes and methods. However, this comes with increased
+    // file size for Gradle. If you do switch this to ALL, run the Gradle wrapper task twice afterwards.
+    // (Verify by checking gradle/wrapper/gradle-wrapper.properties to see if distributionUrl now points to `-all`)
+    distributionType = Wrapper.DistributionType.BIN
+}
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+version = mod_version
+group = mod_group_id
 
-//just for compatilily
+repositories {
+    mavenLocal()
+    mavenCentral()
+
+    flatDir {
+        dirs("libs")
+    }
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
+
+    maven {
+        url "https://harleyoconnor.com/maven"
+    }
+
+
+}
+
+base {
+//    archivesName = mod_id
+    version = "${minecraft_version}-neoforge-${mod_version}"
+    group = "${mod_group_id}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+    archivesName = mod_name_s
+}
+
+// Mojang ships Java 21 to end users starting in 1.20.5, so mods should target Java 21.
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+
+//minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
+//minecraft.accessTransformers.entry public net.minecraft.client.Minecraft textureManager # textureManager
 sourceSets {
     onlyMain {
     }
 }
-minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-    // Channel:   Version:
-    // snapshot   YYYYMMDD   Snapshot are built nightly.
-    // stable     #          Stables are built at the discretion of the MCP team.
-    // official   MCVersion  Official field/method names from Mojang mapping files
-    //
-    // You must be aware of the Mojang license when using the 'official' mappings.
-    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
-    //
-    // Use non-default mappings at your own risk. they may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: "${minecraft_min_version}"
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+// Default run configurations.
+// These can be tweaked, removed, or duplicated as needed.
+neoForge {
+    version = project.neo_version
 
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            // use for logger control
-            property 'forgegradle.runs.dev', 'true'
-
-            // Export mixin-changed classes
-            property 'mixin.debug.export', 'true'
-
-            // Add mixin config to runtime
-            args '-mixin.config=' + project.getProperty('mod_id') + '.mixins.json'
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                    source sourceSets.onlyMain
-                }
-            }
-
+            client()
+            gameDirectory = project.file('runs/client')
         }
-
         server {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a userdev environment
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            // use for logger control
-            property 'forgegradle.runs.dev', 'true'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            // Export mixin-changed classes
-            property 'mixin.debug.export', 'true'
-
-            property 'forgegradle.runs.runServer', 'true'
-            // Add mixin config to runtime
-            args '-mixin.config=' + project.getProperty('mod_id') + '.mixins.json'
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
+            server()
+            programArgument '--nogui'
+            gameDirectory = project.file('runs/server')
         }
 
         data {
-            workingDirectory project.file('run')
+            serverData()
+            systemProperty 'eclipticseasons.runs.runData', 'true'
+            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
 
-            // Recommended logging data for a userdev environment
-            // The markers can be changed as needed.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            property 'mixin.debug.export', 'true'
-
-            // add runData info
-            property 'forgegradle.runs.runData', 'true'
-            property 'forgegradle.runs.dev', 'true'
-            // Add mixin config to runtime
-            args '-mixin.config=' + project.getProperty('mod_id') + '.mixins.json'
-
-            // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-
-                }
-            }
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
         }
     }
 }
-mixin {
-    add sourceSets.main, "${mod_id}.refmap.json"
-    // Sets up the mixin config; this gets added to run configurations and the manifest in the final jar
-    config "${mod_id}.mixins.json"
 
-    // Enables exporting mixin-changed classes to .mixin.out in the run folder
-    debug.export = true
-}
+
+
 // Include resources generated by data generators.
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-    exclude '**/*.cache'
-}
-repositories {
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets.main.resources { srcDir 'src/generated/server_resources' }
 
-    maven {
-        url "https://www.cursemaven.com"
-    }
-    maven {
-        url "https://harleyoconnor.com/maven"
-    }
-    flatDir {
-        dirs("libs")
-    }
+// Sets up a dependency configuration called 'localRuntime'.
+// This configuration should be used instead of 'runtimeOnly' to declare
+// a dependency that will be present for runtime testing but that is
+// "optional", meaning it will not be pulled by dependents of this mod.
+configurations {
+    runtimeClasspath.extendsFrom localRuntime
 }
+
+
 dependencies {
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:${minecraft_min_version}-${forge_version}"
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-    implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-1.20.1:1.3.0-BETA11")
+    // Specify the version of Minecraft to use.
+    // Depending on the plugin applied there are several options. We will assume you applied the userdev plugin as shown above.
+    // The group for userdev is net.neoforged, the module name is neoforge, and the version is the same as the neoforge version.
+    // You can however also use the vanilla plugin (net.neoforged.gradle.vanilla) to use a version of Minecraft without the neoforge loader.
+    // And its provides the option to then use net.minecraft as the group, and one of; client, server or joined as the module name, plus the game version as version.
+    // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
 
-//    implementation fg.deobf("curse.maven:dynamictrees-252818:5065701")
+    // others
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
 
-    implementation fg.deobf("curse.maven:kiwi-303657:5039878")
-    implementation fg.deobf("curse.maven:lychee-567403:5067568")
-    implementation fg.deobf("curse.maven:fruit-trees-355467:5116228")
+    implementation "curse.maven:ecliptic-seasons-1118306:8553646"
+
+    implementation "maven.modrinth:dynamictrees:1.8.0-BETA04"
+
+    implementation ("maven.modrinth:kiwi:26.0.17+neoforge")
+    implementation ("maven.modrinth:lychee:26.0.4+neoforge")
+    implementation ("maven.modrinth:fruitful-fun:26.0.10+fabric")
 //
 
 
-    onlyMainRuntimeOnly fg.deobf("curse.maven:cc-tweaked-282001:5118388")
-//    runtimeOnly fg.deobf("curse.maven:crafttweaker-239197:4277433")
+//    onlyMainRuntimeOnly ("curse.maven:cc-tweaked-282001:5118388")
+//    runtimeOnly ("curse.maven:crafttweaker-239197:4277433")
 
-    onlyMainRuntimeOnly fg.deobf("curse.maven:minemenu-222378:4938047")
+    onlyMainRuntimeOnly "maven.modrinth:sodium:mc26.1.2-0.8.12-neoforge"
+    onlyMainRuntimeOnly "maven.modrinth:iris:1.10.9+26.1-neoforge"
+    onlyMainRuntimeOnly "curse.maven:jade-324717:7817285"
 
-    onlyMainRuntimeOnly fg.deobf("curse.maven:journeymap-32274:4873848")
-    onlyMainRuntimeOnly fg.deobf("curse.maven:jade-324717:5072729")
-    onlyMainImplementation fg.deobf("curse.maven:jei-238222:5101366")
-
-
-    // You may put jars on which you depend on in ./libs or you may define them like so..
-    // compile "some.group:artifact:version:classifier"
-    // compile "some.group:artifact:version"
-
-    // Real examples
-    // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    // compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
-
-    // The 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
-    // provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // These dependencies get remapped to your current MCP mappings
-    // deobf 'com.mod-buildcraft:buildcraft:6.0.8:dev'
-
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
-}
-
-// Example for how to get properties into the manifest for reading by the runtime..
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "${mod_id}",
-                "Specification-Vendor"    : "${mod_authors}",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : "${mod_id}",
-                "Implementation-Version"  : "${mod_version}",
-                "Implementation-Vendor"   : "${mod_authors}",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "MixinConfigs"            : "${mod_id}.mixins.json"
-        ])
+    println("----Scan onlyMainRuntimeOnly libs begin----")
+    fileTree(dir: 'libs', include: ['*.jar']).each { File file ->
+        def fileName = file.name
+        println(fileName.substring(0, fileName.indexOf("-")) + "," + fileName.substring(fileName.indexOf("-") + 1, fileName.indexOf(".jar")))
+        onlyMainRuntimeOnly(name: fileName.substring(0, fileName.indexOf(".jar")),
+                group: 'libs',
+                version: fileName.substring(0, fileName.indexOf(".jar")))
     }
+    println("----Scan onlyMainRuntimeOnly libs end----")
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
 // A missing property will result in an error. Properties are expanded using ${} Groovy notation.
 // When "copyIdeResources" is enabled, this will also run before the game launches in IDE environments.
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
-tasks.named('processResources', ProcessResources).configure {
+tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
-            minecraft_version_range   : minecraft_version_range,
-            forge_version_range       : forge_version_range,
-            loader_version_range      : loader_version_range,
-            dynamictrees_version_range: dynamictrees_version_range,
-            fruittrees_version_range  : fruittrees_version_range,
-            mod_id                    : mod_id,
-            mod_name                  : mod_name,
-            mod_license               : mod_license,
-            mod_version               : mod_version,
-            mod_authors               : mod_authors,
-            mod_description           : mod_description
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            neo_version            : neo_version,
+            neo_version_range      : neo_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_license            : mod_license,
+            mod_version            : mod_version,
+            mod_authors            : mod_authors,
+            mod_description        : mod_description
     ]
     inputs.properties replaceProperties
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
     }
 }
 
 tasks.register('deleteCache') {
     delete 'src/generated/resources/.cache'
+    delete 'src/generated/server_resources/.cache'
 }
 
 jar.dependsOn deleteCache
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
-jar.finalizedBy('reobfJar')
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
-
+// Example configuration to allow publishing using the maven-publish plugin
 publishing {
     publications {
-        mavenJava(MavenPublication) {
-            artifact jar
+        register('mavenJava', MavenPublication) {
+            from components.java
         }
     }
     repositories {
         maven {
-            url "file:///${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/repo"
         }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+// IDEA no longer automatically downloads sources/javadoc jars for dependencies, so we need to explicitly enable the behavior.
+idea {
+    module {
+        downloadSources = true
+        downloadJavadoc = true
+    }
+}
+
+allprojects {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xmaxerrs" << "1000000"
     }
 }

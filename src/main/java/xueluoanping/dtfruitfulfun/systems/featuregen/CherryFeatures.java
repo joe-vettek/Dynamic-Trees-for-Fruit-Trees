@@ -1,16 +1,17 @@
 package xueluoanping.dtfruitfulfun.systems.featuregen;
 
 
-import com.ferreusveritas.dynamictrees.api.registry.Registry;
-import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
-import net.minecraft.resources.ResourceLocation;
+import com.dtteam.dynamictrees.api.registry.Registry;
+import com.dtteam.dynamictrees.systems.genfeature.GenFeature;
+import net.minecraft.resources.Identifier;
 import xueluoanping.dtfruitfulfun.DTFruitfulFun;
 
 
 public class CherryFeatures {
     public static final GenFeature FALLEN_LEAVES = new FeatureGenFallenLeaves(regName("fallen_leaves"));
-    private static ResourceLocation regName(String name) {
-        return new ResourceLocation(DTFruitfulFun.MOD_ID, name);
+
+    private static Identifier regName(String name) {
+        return DTFruitfulFun.rl(name);
     }
 
     public static void register(final Registry<GenFeature> registry) {

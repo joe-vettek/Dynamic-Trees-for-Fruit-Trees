@@ -1,14 +1,18 @@
 package xueluoanping.dtfruitfulfun;
 
-import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
+import com.dtteam.dynamictrees.api.registry.RegistryHandler;
 
+import com.dtteam.dynamictrees.registry.NeoForgeRegistryHandler;
 import net.minecraft.data.worldgen.features.VegetationFeatures;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.data.event.GatherDataEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.*;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraft.resources.Identifier;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.event.lifecycle.InterModEnqueueEvent;
+import net.neoforged.fml.event.lifecycle.InterModProcessEvent;
+import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import snownee.fruits.FFCommonConfig;
@@ -26,23 +30,23 @@ public class DTFruitfulFun {
 
     public static final boolean useLogger=Objects.equals(System.getProperty("forgegradle.runs.dev"), "true");
 
-    public DTFruitfulFun() {
+    public DTFruitfulFun(IEventBus modEventBus, ModContainer modContainer) {
 
         // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        modEventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        modEventBus.addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        modEventBus.addListener(this::processIMC);
         // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        modEventBus.addListener(this::doClientStuff);
 
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::gatherData);
+        modEventBus.addListener(this::gatherData);
 
         // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+        modEventBus.register(this);
         // MinecraftForge.EVENT_BUS.register(TreeGrowHandler.instance);
-        RegistryHandler.setup(MOD_ID);
+        NeoForgeRegistryHandler.setup(MOD_ID,modEventBus);
 
     }
 
@@ -85,7 +89,7 @@ public class DTFruitfulFun {
     //     }
     // }
 
-    public void gatherData(final GatherDataEvent event) {
+    public void gatherData(final GatherDataEvent.Server event) {
         // Resources.MANAGER.gatherData();
 
         // GatherDataHelper.gatherAllData(
@@ -113,7 +117,7 @@ public class DTFruitfulFun {
 
     }
 
-    public static ResourceLocation rl(String name) {
-        return new ResourceLocation(DTFruitfulFun.MOD_ID, name);
+    public static Identifier rl(String name) {
+        return  Identifier.fromNamespaceAndPath(DTFruitfulFun.MOD_ID, name);
     }
 }

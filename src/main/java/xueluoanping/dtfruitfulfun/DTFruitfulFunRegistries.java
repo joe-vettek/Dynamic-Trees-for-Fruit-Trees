@@ -1,16 +1,16 @@
 package xueluoanping.dtfruitfulfun;
 
-import com.ferreusveritas.dynamictrees.api.registry.RegistryEvent;
-import com.ferreusveritas.dynamictrees.api.registry.TypeRegistryEvent;
-import com.ferreusveritas.dynamictrees.api.worldgen.FeatureCanceller;
+import com.dtteam.dynamictrees.api.worldgen.FeatureCanceller;
 
 
-import com.ferreusveritas.dynamictrees.block.leaves.LeavesProperties;
-import com.ferreusveritas.dynamictrees.systems.fruit.Fruit;
-import com.ferreusveritas.dynamictrees.systems.genfeature.GenFeature;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import com.dtteam.dynamictrees.block.fruit.Fruit;
+import com.dtteam.dynamictrees.block.leaves.LeavesProperties;
+import com.dtteam.dynamictrees.event.RegistryEvent;
+import com.dtteam.dynamictrees.event.TypeRegistryEvent;
+import com.dtteam.dynamictrees.systems.genfeature.GenFeature;
+import net.minecraft.resources.Identifier;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import xueluoanping.dtfruitfulfun.systems.featuregen.CherryFeatures;
 import xueluoanping.dtfruitfulfun.systems.fruit.FruitTypes;
 import xueluoanping.dtfruitfulfun.systems.fruit.NamedFruitTypes;
@@ -19,15 +19,15 @@ import xueluoanping.dtfruitfulfun.systems.leaves.FruitsLeavesProperties;
 import xueluoanping.dtfruitfulfun.systems.leaves.NamedVanillaCherryLeaveProperties;
 import xueluoanping.dtfruitfulfun.systems.worldgen.FruitTreesFeatureCanceller;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber
 public class DTFruitfulFunRegistries {
 
     @SubscribeEvent
     public static void registerLeavesPropertiesTypes(final TypeRegistryEvent<LeavesProperties> event) {
         DTFruitfulFun.LOGGER.debug("registerLeavesPropertiesTypes");
-        event.registerType(new ResourceLocation(DTFruitfulFun.MOD_ID, "cherry"), CherryLeavesProperties.TYPE);
-        event.registerType(new ResourceLocation(DTFruitfulFun.MOD_ID, "fruittrees"), FruitsLeavesProperties.TYPE);
-        event.registerType(new ResourceLocation(DTFruitfulFun.MOD_ID, "named_cherry_leaves"), NamedVanillaCherryLeaveProperties.TYPE);
+        event.registerType(DTFruitfulFun.rl("cherry"), CherryLeavesProperties.TYPE);
+        event.registerType(DTFruitfulFun.rl("fruittrees"), FruitsLeavesProperties.TYPE);
+        event.registerType(DTFruitfulFun.rl("named_cherry_leaves"), NamedVanillaCherryLeaveProperties.TYPE);
 
 
     }
@@ -35,8 +35,8 @@ public class DTFruitfulFunRegistries {
     @SubscribeEvent
     public static void registerFruitTypes(final TypeRegistryEvent<Fruit> event) {
         DTFruitfulFun.LOGGER.debug("registerFruitTypes");
-        event.registerType(new ResourceLocation(DTFruitfulFun.MOD_ID, "fly_passable"), FruitTypes.TYPE);
-        event.registerType(new ResourceLocation(DTFruitfulFun.MOD_ID, "named_fruit"), NamedFruitTypes.TYPE);
+        event.registerType(DTFruitfulFun.rl("fly_passable"), FruitTypes.TYPE);
+        event.registerType(DTFruitfulFun.rl("named_fruit"), NamedFruitTypes.TYPE);
 
     }
 
@@ -49,7 +49,7 @@ public class DTFruitfulFunRegistries {
     }
 
     @SubscribeEvent
-    public static void onGenFeatureRegistry(final com.ferreusveritas.dynamictrees.api.registry.RegistryEvent<GenFeature> event) {
+    public static void onGenFeatureRegistry(final RegistryEvent<GenFeature> event) {
         CherryFeatures.register(event.getRegistry());
     }
 
